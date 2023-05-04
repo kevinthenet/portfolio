@@ -1,0 +1,26 @@
+---
+import SocialButtons from "./SocialButtons.astro";
+---
+
+<footer class="page-boundary">
+  <SocialButtons />
+  <div>
+    <p>Built with &lt;3 using <a href="https://astro.build/">Astro</a></p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  div {
+    justify-content: center;
+    display: inline-flex;
+  }
+  p {
+    margin-right: 10px;
+  }
+</style>

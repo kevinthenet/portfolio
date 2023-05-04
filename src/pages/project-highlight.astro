@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/Base.astro";
+
+export interface Props {
+  projectName: string;
+}
+
+const { projectName } = Astro.props;
+// get data for project from CMS?
+---
+
+<BaseLayout title=`${projectName} Highlight`>
+  <h1>Project Highlight</h1>
+</BaseLayout>
