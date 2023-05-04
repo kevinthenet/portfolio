@@ -17,12 +17,15 @@ import SocialButtons from "../components/SocialButtons.astro";
       <code>Python</code>.
     </p>
     <SocialButtons />
+    <div class="resume">
+      <a href="Kevin-Castro-Resume.pdf" download>Download Resume</a>
+    </div>
   </main>
 </BaseLayout>
 
 <script>
   const POSITION_TEXT_INTERVAL_MS = 4000;
-  const positionElement = document.querySelector("#position");
+  const positionElement = document.querySelector("#position")!;
 
   const fadeInOutKeyframes = [
     { opacity: 0 },
@@ -93,5 +96,12 @@ import SocialButtons from "../components/SocialButtons.astro";
   }
   .elevator-pitch strong {
     color: rgb(var(--accent));
+  }
+  .resume {
+    display: flex;
+    justify-content: center;
+  }
+  .resume a {
+    /* TODO: button-ify link */
   }
 </style>
