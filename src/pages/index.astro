@@ -10,12 +10,15 @@ import SocialButtons from "../components/SocialButtons.astro";
     <h2 class="subtitle">
       <code id="position"></code> Software Engineer
     </h2>
-    <p class="elevator-pitch">
-      Full-stack software engineer with a penchant for automation and security.
-      Strong advocate for underrepresented users and software accessibility.
-      Experienced with Full-stack development in the <code>MERN</code> stack and
-      <code>Python</code>.
-    </p>
+    <article class="text-content">
+      <p>
+        Full-stack software engineer with a penchant for automation and
+        security. Strong advocate for underrepresented users and software
+        accessibility. Experienced with Full-stack development in the <code
+          >MERN</code
+        > stack and Machine Learning with <code>Python</code>.
+      </p>
+    </article>
     <SocialButtons />
     <div class="resume">
       <a href="Kevin-Castro-Resume.pdf" download>Download Resume</a>
@@ -57,17 +60,6 @@ import SocialButtons from "../components/SocialButtons.astro";
 </script>
 
 <style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
-    overflow: auto;
-  }
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
-  }
   .text-gradient {
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
@@ -77,25 +69,6 @@ import SocialButtons from "../components/SocialButtons.astro";
   }
   .subtitle {
     text-align: right;
-  }
-  .elevator-pitch {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
-  }
-  .elevator-pitch code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
-  }
-  .elevator-pitch strong {
-    color: rgb(var(--accent));
   }
   .resume {
     display: flex;
