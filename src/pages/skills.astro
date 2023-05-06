@@ -1,6 +1,37 @@
 ---
 import BaseLayout from "../layouts/Base.astro";
-import SkillTree from "../components/SkillTree.astro";
+import SkillWeb from "../components/SkillWeb.astro";
+
+const skills = {
+  frontEnd: [
+    "React.JS",
+    "Astro",
+    "HTML5",
+    "CSS3",
+    "Bootstrap",
+    "MaterializeCSS",
+    "TailwindCSS",
+    "JQuery",
+    "AJAX",
+  ],
+  backEnd: [
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "Node.JS",
+    "Python",
+    "Kubernetes",
+    "Terraform",
+    "AWS",
+    "Database Design",
+    "RESTful API Design",
+    "Task Automation",
+    "DevOps",
+    "Jenkins",
+    "CI/CD",
+  ],
+  dataScience: ["Rasa", "Chatbot Development", "Machine Learning", "MLOps"],
+};
 ---
 
 <BaseLayout title="Skills">
