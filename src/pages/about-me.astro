@@ -3,5 +3,59 @@ import BaseLayout from "../layouts/Base.astro";
 ---
 
 <BaseLayout title="about-me">
-  <h1>About me</h1>
+  <main>
+    <h1>About Me</h1>
+    <article class="text-content">
+      <p>
+        While attending Claremont McKenna College studying for a Physics and
+        Mathematics Double Major, I started developing a passion for Computer
+        Science and software development. What started as an elective
+        class/hobby became my sole focus. I decided to change tracks and left
+        school to pursue a career in software development because of
+        restrictions on my field of study from my scholarship.
+      </p>
+      <p>
+        I used the UCSD Extension Web Development Coding Boot Camp to create a
+        foundation for my skills, which helped me understand MVC architecture,
+        as well as engrossing myself in the MERN stack (<code>MongoDB</code>, <code
+          >Express.js</code
+        >, <code>React.js</code>, <code>Node.js</code>). In addition to the boot
+        camp, I have used <code>Python</code> professionally, and am currently using
+        <code>Java</code> primarily in my studies, which gives me unique experience
+        simply because of the breadth of exposure to different technical stacks and
+        development environments.
+      </p>
+      <p>
+        After completing my boot camp, I began working for Digital Champs and I
+        had an opportunity to come in on the ground-floor of the start up <a
+          href="https://www.jubelhealth.com/">Jubel Health</a
+        >. I worked closely with the team to bootstrap an MVP that was released
+        simultaneously as a web app and an iPhone App. This was a particularly
+        interesting time as I was able to leverage my full-stack learning to
+        create the foundational infrastructure for the application and learn
+        about chat bot development. I quite enjoyed the small team environment
+        and the challenges of reaching MVP for a product for which requirements
+        were sometimes in flux.
+      </p>
+      <p>
+        After 2 years at Digital Champs / Jubel Health, I wanted to push myself
+        to work at a larger company to gain experience with a larger engineering
+        team and gain experience with fitting into an already established
+        engineering culture. I began working at <a
+          href="https://www.redoxengine.com/">Redox</a
+        >
+        as an engineer on their Platform Experience team, whose focus was maintaining
+        their customer dashboard. I learned much from my time there: what an established
+        engineering culture looks like, how on-call rotations for an enterprise-level
+        company work, and how engineering designs can pivot to meet goals further
+        down the horizon.
+      </p>
+    </article>
+  </main>
 </BaseLayout>
+
+<style>
+  main {
+    max-width: 120ch;
+  }
+</style>
