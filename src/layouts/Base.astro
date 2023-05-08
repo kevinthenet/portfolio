@@ -26,12 +26,13 @@ const { title } = Astro.props;
 </html>
 <style is:global>
   :root {
-    --accent: 124, 58, 237;
+    --accent: 77, 17, 182;
+    --complement: 116, 27, 99;
     --accent-gradient: linear-gradient(
       45deg,
       rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
+      rgb(var(--complement)) 30%,
+      rgb(255, 255, 255) 60%
     );
   }
   html {
@@ -64,6 +65,32 @@ const { title } = Astro.props;
     font-size: 3rem;
     font-weight: 800;
     margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  .button {
+    background: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--complement))
+    );
+    border-color: transparent;
+    border-radius: 0.6rem;
+    border-width: 2px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: color 0.6s ease-in-out;
+  }
+  .button:is(:hover, :focus-within) {
+    background: rgb(255, 255, 255);
+    border-color: rgba(var(--accent));
+    border-style: solid;
+    color: rgb(var(--accent));
+    margin: -2px 3px; /* Prevents resizing due to border becoming visible */
   }
   .text-content {
     line-height: 1.6;

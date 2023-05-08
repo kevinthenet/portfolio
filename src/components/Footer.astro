@@ -3,9 +3,13 @@ import SocialButtons from "./SocialButtons.astro";
 ---
 
 <footer class="page-boundary">
-  <SocialButtons />
+  {Astro.url.pathname !== "/" && <SocialButtons />}
   <div>
-    <p>Built with &lt;3 using <a href="https://astro.build/">Astro</a></p>
+    <p>
+      Built by Kevin Castro with &lt;3 using <a href="https://astro.build/"
+        >Astro</a
+      >
+    </p>
   </div>
 </footer>
 

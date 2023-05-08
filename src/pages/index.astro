@@ -21,7 +21,9 @@ import SocialButtons from "../components/SocialButtons.astro";
     </article>
     <SocialButtons />
     <div class="resume">
-      <a href="Kevin-Castro-Resume.pdf" download>Download Resume</a>
+      <a href="Kevin-Castro-Resume.pdf" class="button" download
+        >Download Resume</a
+      >
     </div>
   </main>
 </BaseLayout>
@@ -73,8 +75,6 @@ import SocialButtons from "../components/SocialButtons.astro";
   .resume {
     display: flex;
     justify-content: center;
-  }
-  .resume a {
-    /* TODO: button-ify link */
+    margin-top: 10px;
   }
 </style>
