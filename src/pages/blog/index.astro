@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/Base.astro";
 
+import Card from "../../components/Card.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
@@ -12,16 +13,24 @@ const publishedBlogEntries = await getCollection("blog", ({ data }) => {
 <BaseLayout title="Blog">
   <main>
     <h1>Blog</h1>
-    <ul>
+    <div class="blog-grid">
       {
         publishedBlogEntries.map((blogEntry) => (
-          <li>
-            <a href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</a>
-            <summary>{blogEntry.data.summary}</summary>
-            <FormattedDate timestamp={blogEntry.data.publishDate} />
-          </li>
+          <Card
+            title={blogEntry.data.title}
+            href={`/blog/${blogEntry.slug}`}
+            body={blogEntry.data.summary}
+          />
         ))
       }
-    </ul>
+    </div>
   </main>
 </BaseLayout>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 100% [col-start]);
+    row-gap: 1rem;
+  }
+</style>
