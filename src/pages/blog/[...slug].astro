@@ -22,7 +22,9 @@ const { Content } = await entry.render();
     <h1>{entry.data.title}</h1>
     <sub>{entry.data.summary}</sub>
     <FormattedDate timestamp={entry.data.publishDate} />
-    <Content />
+    <article class="text-content">
+      <Content />
+    </article>
     <a href="/blog"><span>&larr;</span>Back to Blog</a>
   </main>
 </BaseLayout>

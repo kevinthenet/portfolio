@@ -26,7 +26,9 @@ const { Content } = await project.render();
     <ul>
       {project.data.skills.map((skill) => <li>{skill}</li>)}
     </ul>
-    <Content />
+    <article class="text-content">
+      <Content />
+    </article>
     <a href="/projects"><span>&larr;</span>Back to Projects</a>
   </main>
 </BaseLayout>
