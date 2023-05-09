@@ -15,7 +15,7 @@ const project = Astro.props;
 const { Content } = await project.render();
 ---
 
-<BaseLayout title={`${project.data.name} Highlight`}>
+<BaseLayout title={`${project.data.name}`}>
   <main>
     <h1>{project.data.name}</h1>
     <sub>{project.data.subtitle}</sub>
