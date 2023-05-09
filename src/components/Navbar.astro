@@ -1,10 +1,23 @@
+---
+const links = [
+  { url: "/", name: "Home" },
+  { url: "/about-me", name: "About Me" },
+  { url: "/projects", name: "Projects" },
+  { url: "/skills", name: "Skills" },
+  { url: "/blog", name: "Blog" },
+];
+
+const formattedLinks = links.map((link) => {
+  if (Astro.url.pathname === link.url) {
+    link.url = "#";
+  }
+  return link;
+});
+---
+
 <nav>
   <!-- TODO: Dark/Light mode toggle -->
-  <a href="/">Home</a>
-  <a href="/about-me">About me</a>
-  <a href="/projects">Projects</a>
-  <a href="/skills">Skills</a>
-  <a href="/blog">Blog</a>
+  {formattedLinks.map((link) => <a href={link.url}>{link.name}</a>)}
 </nav>
 
 <style>
