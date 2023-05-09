@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/Base.astro";
+
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const publishedBlogEntries = await getCollection("blog", ({ data }) => {
+  return data.isDraft === false;
+});
+---
+
+<BaseLayout title="Blog">
+  <main>
+    <h1>Blog</h1>
+    <ul>
+      {
+        publishedBlogEntries.map((blogEntry) => (
+          <li>
+            <a href={`/blog/${blogEntry.slug}`}>{blogEntry.data.title}</a>
+            <summary>{blogEntry.data.summary}</summary>
+            <FormattedDate timestamp={blogEntry.data.publishDate} />
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>

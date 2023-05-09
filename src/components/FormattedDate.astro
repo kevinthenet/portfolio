@@ -1,0 +1,11 @@
+---
+type Props = {
+  timestamp: Date;
+};
+
+const { timestamp } = Astro.props;
+
+const date = timestamp.toDateString();
+---
+
+<time datetime={date}>{date}</time>
