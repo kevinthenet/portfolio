@@ -1,0 +1,4 @@
+# Artifacts
+build
+.astro
+node_modules
