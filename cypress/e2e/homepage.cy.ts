@@ -1,42 +1,45 @@
 import path = require("path");
 
-const RESUME_FILE_NAME = "Kevin-Castro-Resume.pdf";
+import { RESUME_FILE_NAME, HOME } from "../constants";
 
-describe("Portfolio Homepage", () => {
+describe("Home page", () => {
   let page: Cypress.Chainable;
   beforeEach(() => {
-    page = cy.visit("/");
+    page = cy.visit(HOME.route);
   });
 
-  it("displays the title and header correctly", () => {
-    const page = cy.visit("/");
+  it("displays the title correctly", () => {
+    page.get("title").should("have.text", HOME.title);
+  });
 
-    page.get("title").should("have.text", `Kevin Castro's Portfolio`);
+  it("displays an h1 with my name", () => {
     page.get("h1").should("contain.text", "Kevin Castro");
   });
 
   it("changes the position title every so often", () => {
     let originalPosition: string;
-    page.get("#position").then((position) => {
-      originalPosition = position.text();
-    });
+    page
+      .get("#position")
+      .invoke("text")
+      .then((positionText) => {
+        originalPosition = positionText;
+      });
     // move forward 3s in time
     cy.clock();
     cy.tick(3000);
-    page.get("#position").should("not.equal", originalPosition);
+    page.get("#position").invoke("text").should("not.equal", originalPosition);
   });
 
   it("displays social links in the main section", () => {
     page.get(".social-links > a").should("be.visible");
   });
 
-  it("displays social links in the footer", () => {
-    page.get("footer > a").should("be.visible");
+  it("hides social links in the footer", () => {
+    page.get("footer > .social-links").should("not.exist");
   });
 
-  describe("Resume section", () => {
+  context("Resume section", () => {
     const downloadsFolder = Cypress.config("downloadsFolder");
-    const fileName = RESUME_FILE_NAME;
 
     let link: Cypress.Chainable;
     beforeEach(() => {
@@ -51,7 +54,7 @@ describe("Portfolio Homepage", () => {
     it("allows for a download of the file to take place", () => {
       link.click();
 
-      const resumeFile = path.join(downloadsFolder, fileName);
+      const resumeFile = path.join(downloadsFolder, RESUME_FILE_NAME);
       cy.log(resumeFile);
       cy.readFile(resumeFile, { timeout: 15000 }).should("exist");
     });
