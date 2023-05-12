@@ -12,7 +12,6 @@
     "test:cypress": "npx cypress run -C cypress.config.js",
     "test:cypress:open": "npx cypress open -C cypress.config.js",
     "prettier:check": "npx prettier --check .",
-    "prettier:fix": "npx prettier --write .",
     "prepare": "husky install",
     "postinstall": "npm run prepare"
   },
