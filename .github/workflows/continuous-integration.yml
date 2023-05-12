@@ -1,0 +1,13 @@
+name: Continuous Integration (CI)
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: push
+jobs:
+  cypress-runs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Run Lint checks
+        run: npm run prettier:check
+      - name: Run Cypress End-to-End tests
+        uses: cypress-io/github-actions@v5
