@@ -10,4 +10,4 @@ jobs:
       - name: Run Lint checks
         run: npm run prettier:check
       - name: Run Cypress End-to-End tests
-        uses: cypress-io/github-actions@v5
+        uses: cypress-io/github-action@v5
