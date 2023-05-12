@@ -1,14 +1,22 @@
 # Kevin Castro's Portfolio Page
 
+![Continuous Integration Badge](https://github.com/kevinthemself/portfolio/actions/workflows/continuous-integration/badge.svg)
+
+## 🏗️ Project 1Setup
+
 To install and run this project locally:
 
 ```
 npm install
 ```
 
-This will install project dependencies and set up pre-commit hooks via the `husky` npm module.
+This will install project dependencies.
 
-![Continuous Integration Badge](https://github.com/kevinthemself/portfolio/actions/workflows/continuous-integration/badge.svg)
+To set up pre-commit hooks via the `husky` npm module:
+
+```
+npm run prepare
+```
 
 ## 🚀 Project Structure
 
