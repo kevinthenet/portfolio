@@ -9,5 +9,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Run Lint checks
         run: npm run prettier:check
+      - name: Start up dev server
+        run: npm run dev
       - name: Run Cypress End-to-End tests
         uses: cypress-io/github-action@v5
