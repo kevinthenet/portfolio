@@ -1,5 +1,5 @@
 name: Continuous Integration (CI)
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.sha }}
 on: push
 jobs:
   cypress-runs:
@@ -11,7 +11,5 @@ jobs:
         run: npm install
       - name: Run Lint checks
         run: npm run prettier:check
-      - name: Start up dev server
-        run: npm run dev
-      - name: Run Cypress End-to-End tests
-        uses: cypress-io/github-action@v5
+      - name: Start up dev server and run test suite
+        run: npm run dev & npm run test
