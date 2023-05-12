@@ -1,14 +1,9 @@
-import { getCollection } from "astro:content";
-import { BLOG } from "../constants";
+import { BLOG, TEST_BLOG_SLUG } from "../constants";
 
-describe("Blog post page", async () => {
-  const blogPosts = await getCollection("blog");
-  const getRandomBlogPost = () =>
-    blogPosts[Math.floor(Math.random() * blogPosts.length)];
-
+describe("Blog post page", () => {
   let page: Cypress.Chainable;
   beforeEach(() => {
-    page = cy.visit(`${BLOG.route}/${getRandomBlogPost().slug}`);
+    page = cy.visit(`${BLOG.route}/${TEST_BLOG_SLUG}`);
   });
 
   it("displays the title correctly", () => {

@@ -3,7 +3,6 @@
 title: Creating a portfolio with Astro
 summary: A retrospective on how web development has improved from my own perspective
 publishDate: 2023-05-08
-isDraft: false
 tags: ["development", "astro"]
 ---
 

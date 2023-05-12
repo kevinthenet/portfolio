@@ -48,9 +48,11 @@ export const PAGES: Record<PageName, Page> = {
 };
 
 // content collections
-// use this as a possible workaround to the types generated in .astro not being accessible
+// use this as a workaround to the module `astro:content` generated in .astro/ not being accessible in webpack headless browser runtime
 export const BLOG_DIR = "src/content/blog";
 export const PROJECTS_DIR = "src/content/projects";
+export const TEST_BLOG_SLUG = "creating-a-portfolio-with-astro";
+export const TEST_PROJECT_SLUG = "jubel-health";
 
 // artifacts
 export const RESUME_FILE_NAME = "Kevin-Castro-Resume.pdf";

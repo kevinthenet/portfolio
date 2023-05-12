@@ -1,14 +1,9 @@
-import { getCollection } from "astro:content";
-import { PROJECTS } from "../constants";
+import { PROJECTS, TEST_PROJECT_SLUG } from "../constants";
 
 describe("Project highlight page", async () => {
-  const projects = await getCollection("projects");
-  const getRandomProject = () =>
-    projects[Math.floor(Math.random() * projects.length)];
-
   let page: Cypress.Chainable;
   beforeEach(() => {
-    page = cy.visit(`${PROJECTS.route}/${getRandomProject().slug}`);
+    page = cy.visit(`${PROJECTS.route}/${TEST_PROJECT_SLUG}`);
   });
 
   it("displays the title correctly", () => {
