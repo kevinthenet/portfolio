@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+      - name: Install packages
+        run: npm install
       - name: Run Lint checks
         run: npm run prettier:check
       - name: Start up dev server
