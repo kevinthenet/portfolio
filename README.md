@@ -1,4 +1,4 @@
-# Kevin Castro's Portfolio Page
+# Kevin Castro's Portfolio
 
 ![Continuous Integration Badge](https://github.com/kevinthemself/portfolio/actions/workflows/continuous-integration.yml/badge.svg)
 
