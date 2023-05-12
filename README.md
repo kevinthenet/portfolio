@@ -2,7 +2,7 @@
 
 ![Continuous Integration Badge](https://github.com/kevinthemself/portfolio/actions/workflows/continuous-integration.yml/badge.svg)
 
-## 🏗️ Project 1Setup
+## 🏗️ Project Setup
 
 To install and run this project locally:
 
@@ -24,6 +24,11 @@ Inside of this Astro project, you'll see the following folders and files:
 
 ```
 /
+├── cypress/
+│   ├── components/
+│   │   └── component-test.cy.ts
+│   └── e2e/
+│       └── e2e-test.cy.ts
 ├── public/
 │   └── favicon.svg
 ├── src/
@@ -35,6 +40,8 @@ Inside of this Astro project, you'll see the following folders and files:
 │       └── index.astro
 └── package.json
 ```
+
+Cypress requires the dev server to be running to run tests locally.
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
