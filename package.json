@@ -11,7 +11,7 @@
     "test": "npm run test:cypress",
     "test:cypress": "npx cypress run -C cypress.config.js",
     "test:cypress:open": "npx cypress open -C cypress.config.js",
-    "prettier:check": "npx prettier --check .",
+    "pretty-quick": "pretty-quick",
     "prepare": "husky install"
   },
   "dependencies": {
