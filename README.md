@@ -41,7 +41,7 @@ Inside of this Astro project, you'll see the following folders and files:
 └── package.json
 ```
 
-Cypress requires the dev server to be running to run tests locally.
+> Note: Cypress requires the dev server to be running to run tests locally.
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
