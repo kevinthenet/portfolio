@@ -1,6 +1,14 @@
 <div class="social-links">
-  <a href="https://github.com/kevinthemself" class="button">GitHub</a>
-  <a href="https://www.linkedin.com/in/ortsacnivek/" class="button">LinkedIn</a>
+  <a
+    href="https://github.com/kevinthemself"
+    class="button"
+    >GitHub</a
+  >
+  <a
+    href="https://www.linkedin.com/in/ortsacnivek/"
+    class="button"
+    >LinkedIn</a
+  >
 </div>
 
 <style>
@@ -8,7 +16,11 @@
     display: flex;
     justify-content: center;
   }
-  .social-links > a {
+  a {
     margin: 0 5px 0 5px;
+  }
+  a:is(:hover, :focus-within) {
+    transition: none;
+    text-shadow: none;
   }
 </style>
