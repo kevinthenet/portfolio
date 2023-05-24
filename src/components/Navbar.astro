@@ -1,26 +1,34 @@
 ---
+import ToggleViewButton from './ToggleViewButton.astro';
+
 const links = [
-  { url: "/", name: "Home" },
-  { url: "/about-me", name: "About Me" },
-  { url: "/projects", name: "Projects" },
-  { url: "/skills", name: "Skills" },
-  { url: "/blog", name: "Blog" },
+  { url: '/', name: 'Home' },
+  { url: '/about-me', name: 'About Me' },
+  { url: '/projects', name: 'Projects' },
+  { url: '/skills', name: 'Skills' },
+  { url: '/blog', name: 'Blog' },
 ];
 
 const formattedLinks = links.map((link) => {
   if (Astro.url.pathname === link.url) {
-    link.url = "#";
+    link.url = '#';
   }
   return link;
 });
 ---
 
-<nav>
-  <!-- TODO: Dark/Light mode toggle -->
-  {formattedLinks.map((link) => <a href={link.url}>{link.name}</a>)}
-</nav>
+<div>
+  <nav>
+    {formattedLinks.map((link) => <a href={link.url}>{link.name}</a>)}
+  </nav>
+  <ToggleViewButton />
+</div>
 
 <style>
+  div {
+    display: flex;
+    flex-direction: column;
+  }
   nav {
     justify-content: space-between;
   }

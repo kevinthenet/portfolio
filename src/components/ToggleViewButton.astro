@@ -1,0 +1,66 @@
+---
+const labelText = `Toggle Dark Mode`;
+const stateIcons = {
+  light: '\u{263C}', // white sun with rays
+  dark: '\u{2600}', // black sun with rays
+};
+---
+
+<button
+  class="color-mode-toggle"
+  aria-label={labelText}>
+  {`${stateIcons['dark']} ${labelText}`}
+</button>
+
+<script>
+  const stateIcons = {
+    light: '\u{263C}',
+    dark: '\u{2600}',
+  };
+  const colorModeToggleButton = document.querySelector(
+    'button.color-mode-toggle'
+  );
+  const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);
+  const updateButton = (colorMode: keyof typeof stateIcons) => {
+    const prevStateText = `Toggle ${capitalize(colorMode)} Mode`;
+    colorModeToggleButton!.setAttribute('aria-label', prevStateText);
+    colorModeToggleButton!.textContent = `${stateIcons[colorMode]} ${prevStateText}`;
+  };
+
+  if (
+    /* This condition checks whether the user has set a site preference for dark mode OR a OS-level preference for dark mode AND no site preference */
+    localStorage.getItem('color-mode') === 'dark' ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches &&
+      !localStorage.getItem('color-mode'))
+  ) {
+    // if true, set the site to dark mode and change button accordingly
+    document.documentElement.setAttribute('color-mode', 'dark');
+    updateButton('light');
+  }
+
+  const toggleColorMode = (e: Event) => {
+    const currentState = document.documentElement.getAttribute('color-mode');
+    let nextState: keyof typeof stateIcons;
+
+    switch (currentState) {
+      case 'light':
+        nextState = 'dark';
+        break;
+      case 'dark':
+        nextState = 'light';
+        break;
+      default:
+        // default to light mode
+        nextState = 'light';
+    }
+
+    // change style
+    document.documentElement.setAttribute('color-mode', nextState);
+    // change button text and icon
+    updateButton(currentState! as keyof typeof stateIcons);
+    // store this for later
+    localStorage.setItem('color-mode', nextState);
+  };
+
+  colorModeToggleButton!.addEventListener('click', toggleColorMode);
+</script>

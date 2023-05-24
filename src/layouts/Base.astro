@@ -1,7 +1,7 @@
 ---
-import Head from "../components/Head.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
   title: string;
@@ -11,7 +11,9 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  color-mode="light">
   <Head title={title} />
   <body>
     <Header />
@@ -19,18 +21,39 @@ const { title } = Astro.props;
     <Footer />
     <style is:global>
       :root {
-        --accent: 77, 17, 182;
-        --complement: 116, 27, 99;
         --accent-gradient: linear-gradient(
           45deg,
-          rgb(var(--accent)),
-          rgb(var(--complement)) 30%,
+          var(--accent),
+          var(--analogue) 30%,
           rgb(255, 255, 255) 60%
         );
       }
+      :root[color-mode='light'] {
+        --accent: rgb(77, 17, 182);
+        --accent-background: rgba(77, 17, 182, 12%);
+        --analogue: rgb(198, 0, 148);
+        --background-color: rgb(246, 246, 246);
+        --highlight: rgb(77, 17, 182);
+        --highlight-background: rgba(77, 17, 182, 12%);
+        --heading-color: rgb(0, 0, 0);
+        --text-color: rgb(0, 0, 0);
+        --text-background: rgb(240, 240, 244);
+      }
+      :root[color-mode='dark'] {
+        --accent: rgb(131, 96, 195);
+        --accent-background: rgba(180, 142, 245, 12%);
+        --analogue: rgb(238, 148, 182);
+        --background-color: rgb(0, 0, 0);
+        --highlight: rgb(255, 255, 255);
+        --highlight-background: rgb(131, 96, 195);
+        --heading-color: rgb(11, 171, 49);
+        --text-color: rgb(255, 255, 255);
+        --text-background: rgb(91, 91, 102);
+      }
       html {
+        color: var(--text-color);
         font-family: system-ui, sans-serif;
-        background-color: #f6f6f6;
+        background-color: var(--background-color);
         box-sizing: border-box;
       }
       * {
@@ -44,8 +67,8 @@ const { title } = Astro.props;
           DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
         font-size: 0.875em;
         font-weight: bold;
-        background: rgba(var(--accent), 12%);
-        color: rgb(var(--accent));
+        background: var(--highlight-background);
+        color: var(--highlight);
         border-radius: 4px;
         padding: 0.3em 0.45em;
       }
@@ -67,41 +90,42 @@ const { title } = Astro.props;
       }
       a {
         text-decoration: none;
-        color: rgb(var(--accent));
+        color: var(--heading-color);
       }
-      p > a:is(:hover, :focus-within) {
-        color: rgb(var(--complement));
-        transition: color 0.2s, text-shadow 0.2s ease-in-out;
-        text-shadow: 0.05rem 0 rgb(var(--complement)); /* little workaround to simulate bolding without layout change */
+      a:is(:hover, :focus-within) {
+        color: var(--analogue);
+        transition: color 0.2s, text-shadow 0.2s ease-in;
+        text-shadow: 0.05rem 0 var(--analogue); /* little workaround to simulate bolding without layout change */
+      }
+      article {
+        background-color: var(--text-background);
+        color: var(--text-color);
       }
       .button {
-        background: linear-gradient(
-          45deg,
-          rgb(var(--accent)),
-          rgb(var(--complement))
-        );
+        background: linear-gradient(45deg, var(--accent), var(--analogue));
+        background-position: 100%;
         border-color: transparent;
         border-radius: 0.6rem;
         border-width: 2px;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
           0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        color: rgb(255, 255, 255);
+        color: var(--background-color);
         font-weight: 600;
         padding: 10px 20px;
-        transition: color 0.6s ease-in-out;
+        transition: color 0.2s ease-in;
       }
       .button:is(:hover, :focus-within) {
-        background: rgb(255, 255, 255);
-        border-color: rgba(var(--accent));
+        background-position: 0;
+        background-image: var(--background-color);
+        border-color: var(--accent);
         border-style: solid;
-        color: rgb(var(--accent));
+        color: var(--text-color);
         margin: -2px 3px; /* Prevents resizing due to border becoming visible */
       }
       .text-content {
         line-height: 1.6;
         margin: 1rem 0;
         border: 1px solid rgba(var(--accent), 25%);
-        background-color: white;
         padding: 1rem;
         border-radius: 0.4rem;
       }
