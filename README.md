@@ -63,4 +63,3 @@ All commands are run from the root of the project:
 | `npm run astro -- --help`   | Get help using the Astro CLI                           |
 | `npm run test`              | Run test jobs locally                                  |
 | `npm run test:cypress:open` | Start up Cypress server (for interactive test editing) |
-| `npm run prettier:check`    | Run Prettier lint checks                               |
