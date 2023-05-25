@@ -4,8 +4,10 @@ type Props = {
 };
 
 const { timestamp } = Astro.props;
-
-const date = timestamp.toDateString();
+const parsedTimestamp = new Date(timestamp);
+const date = parsedTimestamp.toDateString();
 ---
 
-<time datetime={date}>{date}</time>
+<div>
+  <time datetime={date}>{date}</time>
+</div>

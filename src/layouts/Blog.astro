@@ -1,0 +1,33 @@
+---
+import BaseLayout from './Base.astro';
+
+import FormattedDate from '../components/FormattedDate.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <section>
+    <h1>{frontmatter.title}</h1>
+    <h3>{frontmatter.summary}</h3>
+    <FormattedDate timestamp={frontmatter.publishDate} />
+  </section>
+  <main>
+    <article class="text-content">
+      <slot />
+    </article>
+    <a href="/blog"><span>&larr;</span>Back to Blog</a>
+  </main>
+</BaseLayout>
+
+<style>
+  section {
+    text-align: center;
+  }
+  time {
+    text-align: center;
+  }
+  pre code {
+    background: none;
+  }
+</style>

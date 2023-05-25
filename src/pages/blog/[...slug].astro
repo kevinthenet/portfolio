@@ -1,30 +1,21 @@
 ---
-import { getCollection, CollectionEntry } from "astro:content";
-import BaseLayout from "../../layouts/Base.astro";
-
-import FormattedDate from "../../components/FormattedDate.astro";
+import { getCollection, CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const entries = await getCollection("blog");
+  const entries = await getCollection('blog');
   return entries.map((entry) => ({
     params: { slug: entry.slug },
     props: entry,
   }));
 }
-type Props = CollectionEntry<"blog">;
+type Props = CollectionEntry<'blog'>;
 
 const entry = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<BaseLayout title={entry.data.title}>
-  <main>
-    <h1>{entry.data.title}</h1>
-    <sub>{entry.data.summary}</sub>
-    <FormattedDate timestamp={entry.data.publishDate} />
-    <article class="text-content">
-      <Content />
-    </article>
-    <a href="/blog"><span>&larr;</span>Back to Blog</a>
-  </main>
-</BaseLayout>
+<!-- Since this is a pretty straightforward content container
+  we use the built-in markdown layout linking that Astro provides:
+  https://docs.astro.build/en/core-concepts/layouts/#markdownmdx-layouts
+-->
+<Content />
