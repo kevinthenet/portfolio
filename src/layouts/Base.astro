@@ -1,7 +1,7 @@
 ---
-import Head from "../components/Head.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
   title: string;
@@ -11,7 +11,9 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" color-mode="light">
+<html
+  lang="en"
+  color-mode="light">
   <Head title={title} />
   <body>
     <Header />
@@ -26,7 +28,7 @@ const { title } = Astro.props;
           rgb(255, 255, 255) 60%
         );
       }
-      :root[color-mode="light"] {
+      :root[color-mode='light'] {
         --accent: rgb(77, 17, 182);
         --accent-background: rgba(77, 17, 182, 12%);
         --analogue: rgb(198, 0, 148);
@@ -37,7 +39,7 @@ const { title } = Astro.props;
         --text-color: rgb(0, 0, 0);
         --text-background: rgb(240, 240, 244);
       }
-      :root[color-mode="dark"] {
+      :root[color-mode='dark'] {
         --accent: rgb(131, 96, 195);
         --accent-background: rgba(180, 142, 245, 12%);
         --analogue: rgb(238, 148, 182);
@@ -69,6 +71,9 @@ const { title } = Astro.props;
         color: var(--highlight);
         border-radius: 4px;
         padding: 0.3em 0.45em;
+      }
+      pre {
+        border-radius: 4px;
       }
       pre code {
         background: none; /* any pre-formatted code blocks (i.e. not inline code) should have no background */
