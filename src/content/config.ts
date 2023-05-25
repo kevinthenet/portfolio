@@ -1,16 +1,16 @@
 import { z, defineCollection } from "astro:content";
 
+const imageSchema = z.object({
+  url: z.string(),
+  alt: z.string(),
+});
+
 const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
     publishDate: z.date(),
-    heroImage: z
-      .object({
-        url: z.string(),
-        alt: z.string(),
-      })
-      .optional(),
+    heroImage: imageSchema.optional(),
     tags: z.array(z.string()),
   }),
 });
@@ -22,6 +22,7 @@ const projectCollection = defineCollection({
     link: z.string(),
     technology_used: z.array(z.string()),
     skills: z.array(z.string()),
+    photos: z.array(imageSchema).optional(),
   }),
 });
 

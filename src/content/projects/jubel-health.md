@@ -24,8 +24,23 @@ skills:
     "DevOps",
     "Task Automation",
   ]
+photos:
+  [
+    {
+      url: "/Jubel-Health-landing-page.png",
+      alt: "Jubel Health Website Landing page",
+    },
+    {
+      url: "/Jubel-Health-how-jubel-works.png",
+      alt: "Jubel Health Website How-to describing the questions you can ask",
+    },
+    {
+      url: "/Jubel-Health-call-to-action.png",
+      alt: "Jubel Health Website `Call to Action with instructions on how to install app",
+    },
+  ]
 ---
 
 <!-- Describe the work you did for Jubel Health here -->
 
-Something here.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt.

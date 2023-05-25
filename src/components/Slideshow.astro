@@ -1,0 +1,120 @@
+---
+interface Props {
+  photos: { url: string; alt: string }[];
+}
+const { photos } = Astro.props;
+---
+
+<div class="slideshow">
+  <div class="slideshow-container">
+    {
+      photos.map(({ url, alt }) => (
+        <img
+          src={url}
+          alt={alt}
+          class="slide"
+        />
+      ))
+    }
+    <!-- Empty hrefs with prevent default allow tabbing for users navigating that way -->
+    <a
+      class="prev"
+      href=""
+      aria-label="Previous image"
+      >&larr;</a
+    >
+    <a
+      class="next"
+      href=""
+      aria-label="Next image"
+      >&rarr;</a
+    >
+  </div>
+  <div class="breadcrumbs">
+    {photos.map((photo) => <span class="breadcrumb">&#x25A1;</span>)}
+  </div>
+</div>
+
+<style>
+  .slideshow-container {
+    position: relative;
+  }
+  .slideshow {
+    max-width: 100%;
+  }
+  .slide {
+    display: none;
+  }
+  .breadcrumbs {
+    text-align: center;
+  }
+  .prev,
+  .next {
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    transition: background-color 0.6s ease-in-out;
+    padding: 22.5% 5% 24% 5%; /* a little weird but only way I found to easily make flush with the image*/
+  }
+  .next {
+    right: 0;
+  }
+
+  .prev:is(:hover, :focus-within),
+  .next:is(:hover, :focus-within) {
+    color: rgb(255, 255, 255);
+    text-shadow: none;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  img {
+    width: 100%;
+  }
+</style>
+
+<script>
+  let currentSlide = 0;
+
+  const breadcrumbStates = {
+    selected: '&#x25A3;',
+    unselected: '&#x25A1;',
+  };
+
+  function showSlide(index: number) {
+    const slides = document.getElementsByClassName('slide');
+    const breadcrumbs = document.getElementsByClassName('breadcrumb');
+
+    if (index >= slides.length) {
+      index = 0;
+    }
+
+    if (index < 0) {
+      index = slides.length - 1;
+    }
+
+    // hide current picture and unset selected breadcrumb
+    slides[currentSlide].setAttribute('style', 'display: none;');
+    breadcrumbs[currentSlide].innerHTML = breadcrumbStates['unselected'];
+
+    // show next slide and set selected breadcrumb
+    slides[index].setAttribute('style', 'display: block;');
+    breadcrumbs[index].innerHTML = breadcrumbStates['selected'];
+
+    currentSlide = index;
+  }
+
+  function nextSlide(e: Event) {
+    e.preventDefault();
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide(e: Event) {
+    e.preventDefault();
+    showSlide(currentSlide - 1);
+  }
+
+  document.querySelector('.prev')?.addEventListener('click', prevSlide);
+  document.querySelector('.next')?.addEventListener('click', nextSlide);
+
+  showSlide(currentSlide);
+</script>
