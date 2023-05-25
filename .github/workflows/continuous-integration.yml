@@ -7,6 +7,7 @@ on:
       - "**.js"
       - "**.tsx"
       - "**.jsx"
+      - "**.astro"
 jobs:
   cypress-runs:
     runs-on: ubuntu-latest
