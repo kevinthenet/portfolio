@@ -57,12 +57,14 @@ const { data: project } = Astro.props;
     overflow: unset;
     max-width: 200ch;
   }
+  a {
+    color: var(--accent);
+  }
   .brief {
     display: flex;
     flex-direction: column;
   }
   .brief a {
-    color: var(--accent);
     text-align: right;
   }
   .spotlight {
