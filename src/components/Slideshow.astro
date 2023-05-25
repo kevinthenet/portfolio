@@ -7,28 +7,10 @@ const { photos } = Astro.props;
 
 <div class="slideshow">
   <div class="slideshow-container">
-    {
-      photos.map(({ url, alt }) => (
-        <img
-          src={url}
-          alt={alt}
-          class="slide"
-        />
-      ))
-    }
+    {photos.map(({ url, alt }) => <img src={url} alt={alt} class="slide" />)}
     <!-- Empty hrefs with prevent default allow tabbing for users navigating that way -->
-    <a
-      class="prev"
-      href=""
-      aria-label="Previous image"
-      >&larr;</a
-    >
-    <a
-      class="next"
-      href=""
-      aria-label="Next image"
-      >&rarr;</a
-    >
+    <a class="prev" href="" aria-label="Previous image">&larr;</a>
+    <a class="next" href="" aria-label="Next image">&rarr;</a>
   </div>
   <div class="breadcrumbs">
     {photos.map((photo) => <span class="breadcrumb">&#x25A1;</span>)}
@@ -76,13 +58,13 @@ const { photos } = Astro.props;
   let currentSlide = 0;
 
   const breadcrumbStates = {
-    selected: '&#x25A3;',
-    unselected: '&#x25A1;',
+    selected: "&#x25A3;",
+    unselected: "&#x25A1;",
   };
 
   function showSlide(index: number) {
-    const slides = document.getElementsByClassName('slide');
-    const breadcrumbs = document.getElementsByClassName('breadcrumb');
+    const slides = document.getElementsByClassName("slide");
+    const breadcrumbs = document.getElementsByClassName("breadcrumb");
 
     if (index >= slides.length) {
       index = 0;
@@ -93,12 +75,12 @@ const { photos } = Astro.props;
     }
 
     // hide current picture and unset selected breadcrumb
-    slides[currentSlide].setAttribute('style', 'display: none;');
-    breadcrumbs[currentSlide].innerHTML = breadcrumbStates['unselected'];
+    slides[currentSlide].setAttribute("style", "display: none;");
+    breadcrumbs[currentSlide].innerHTML = breadcrumbStates["unselected"];
 
     // show next slide and set selected breadcrumb
-    slides[index].setAttribute('style', 'display: block;');
-    breadcrumbs[index].innerHTML = breadcrumbStates['selected'];
+    slides[index].setAttribute("style", "display: block;");
+    breadcrumbs[index].innerHTML = breadcrumbStates["selected"];
 
     currentSlide = index;
   }
@@ -113,8 +95,8 @@ const { photos } = Astro.props;
     showSlide(currentSlide - 1);
   }
 
-  document.querySelector('.prev')?.addEventListener('click', prevSlide);
-  document.querySelector('.next')?.addEventListener('click', nextSlide);
+  document.querySelector(".prev")?.addEventListener("click", prevSlide);
+  document.querySelector(".next")?.addEventListener("click", nextSlide);
 
   showSlide(currentSlide);
 </script>

@@ -1,17 +1,17 @@
 ---
-import ToggleViewButton from './ToggleViewButton.astro';
+import ToggleViewButton from "./ToggleViewButton.astro";
 
 const links = [
-  { url: '/', name: 'Home' },
-  { url: '/about-me', name: 'About Me' },
-  { url: '/projects', name: 'Projects' },
-  { url: '/skills', name: 'Skills' },
-  { url: '/blog', name: 'Blog' },
+  { url: "/", name: "Home" },
+  { url: "/about-me", name: "About Me" },
+  { url: "/projects", name: "Projects" },
+  { url: "/skills", name: "Skills" },
+  { url: "/blog", name: "Blog" },
 ];
 
 const formattedLinks = links.map((link) => {
   if (Astro.url.pathname === link.url) {
-    link.url = '#';
+    link.url = "#";
   }
   return link;
 });
