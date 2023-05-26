@@ -1,0 +1,51 @@
+---
+interface Props {
+  skills: string; // JSON string, keys are skill category strings, fields are array of skill strings
+}
+
+const { skills } = Astro.props;
+---
+
+<skill-web
+  class="skill-web"
+  id={'test'}
+  data-skills={skills}>
+</skill-web>
+
+<!-- Minified source is from https://github.com/anvaka/VivaGraphJS -->
+<script is:inline src="/vivagraph.min.js"></script>
+<script>
+  class SkillWeb extends HTMLElement {
+    constructor() {
+      super();
+
+      const skills: Record<string, string[]> = this.dataset.skills
+        ? JSON.parse(this.dataset.skills)
+        : {};
+      const skillEntries = Object.entries(skills);
+
+      const graphics = Viva.Graph.View.skillEntries.map(
+        ([skillCategory, skills]) => {
+          console.log(`${skillCategory}: ${skills}`);
+          const graph = Viva.Graph.graph();
+          // add initial node
+          graph.addNode(skillCategory);
+          // for each skill we add a node and link it to the parent node
+          skills.forEach((skill) => {
+            graph.addNode(skill);
+            graph.addLink(skillCategory, skill);
+          });
+
+          // then we render
+          const renderer = Viva.Graph.View.renderer(graph, {
+            container: this,
+          });
+
+          renderer.run();
+        }
+      );
+    }
+  }
+
+  customElements.define('skill-web', SkillWeb);
+</script>
