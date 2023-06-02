@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "../layouts/Base.astro";
-import SocialButtons from "../components/SocialButtons.astro";
+import BaseLayout from '../layouts/Base.astro';
+import SocialButtons from '../components/SocialButtons.astro';
 ---
 
 <BaseLayout title="Portfolio">
@@ -30,7 +30,7 @@ import SocialButtons from "../components/SocialButtons.astro";
 
 <script>
   const POSITION_TEXT_INTERVAL_MS = 4000;
-  const positionElement = document.querySelector("#position")!;
+  const positionElement = document.querySelector('#position')!;
 
   const fadeInOutKeyframes = [
     { opacity: 0 },
@@ -43,7 +43,7 @@ import SocialButtons from "../components/SocialButtons.astro";
   };
 
   let index = 0;
-  const positions = ["Full-Stack", "Back-end", "Front-end"];
+  const positions = ['Full-Stack', 'Back-end', 'Front-end'];
   let position = positions[index];
 
   setPositionTextContent(position);

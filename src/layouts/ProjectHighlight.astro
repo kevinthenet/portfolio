@@ -1,9 +1,9 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import BaseLayout from "./Base.astro";
-import Slideshow from "../components/Slideshow.astro";
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './Base.astro';
+import Slideshow from '../components/Slideshow.astro';
 
-type Props = CollectionEntry<"projects">;
+type Props = CollectionEntry<'projects'>;
 
 const { data: project } = Astro.props;
 ---

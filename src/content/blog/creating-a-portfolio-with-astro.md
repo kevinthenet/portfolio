@@ -3,7 +3,7 @@ layout: ../../layouts/Blog.astro
 title: Creating a portfolio with Astro
 summary: A retrospective on how web development has improved from my own perspective
 publishDate: 2023-05-08
-tags: ["development", "astro"]
+tags: ['development', 'astro']
 ---
 
 ## Let's create some requirements
@@ -23,11 +23,11 @@ I wanted to do a couple things differently this time around:
 
 ```astro
 ---
-import BaseLayout from "../layouts/Base.astro";
-import { request } from "@octokit/request";
+import BaseLayout from '../layouts/Base.astro';
+import { request } from '@octokit/request';
 
 // get all the blog posts from my public gist
-const blog = await request("GET /gists/<my-gist-id>");
+const blog = await request('GET /gists/<my-gist-id>');
 const posts: Object = blog.data.files;
 ---
 

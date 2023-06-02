@@ -22,9 +22,7 @@ const formattedLinks = links.map((link) => {
     {
       // we have to add to the index because of the special value of tabindex 0
       formattedLinks.map((link, index) => (
-        <a
-          href={link.url}
-          tabindex={index + 1}>
+        <a href={link.url} tabindex={index + 1}>
           {link.name}
         </a>
       ))
