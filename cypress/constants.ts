@@ -1,11 +1,5 @@
 // routes
-const availablePages = [
-  'HOME',
-  'ABOUT_ME',
-  'BLOG',
-  'PROJECTS',
-  'SKILLS',
-] as const;
+const availablePages = ['HOME', 'ABOUT_ME', 'BLOG', 'PROJECTS'] as const;
 type PageName = (typeof availablePages)[number];
 
 type Page = {
@@ -19,32 +13,30 @@ export const HOME: Page = {
   title: 'Kevin Castro // Portfolio',
   friendlyText: 'Home',
 };
+
 export const ABOUT_ME: Page = {
   route: '/about-me',
   title: 'Kevin Castro // About Me',
   friendlyText: 'About Me',
 };
+
 export const BLOG: Page = {
   route: '/blog',
   title: 'Kevin Castro // Blog',
   friendlyText: 'Blog',
 };
+
 export const PROJECTS: Page = {
   route: '/projects',
   title: 'Kevin Castro // Projects',
   friendlyText: 'Projects',
 };
-export const SKILLS: Page = {
-  route: '/skills',
-  title: 'Kevin Castro // Skills',
-  friendlyText: 'Skills',
-};
+
 export const PAGES: Record<PageName, Page> = {
   HOME,
   ABOUT_ME,
   BLOG,
   PROJECTS,
-  SKILLS,
 };
 
 // content collections
