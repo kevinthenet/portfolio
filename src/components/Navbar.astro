@@ -17,7 +17,7 @@ const formattedLinks = links.map((link) => {
 });
 ---
 
-<div>
+<div class="navbar">
   <nav>
     {formattedLinks.map((link) => <a href={link.url}>{link.name}</a>)}
   </nav>
@@ -25,17 +25,21 @@ const formattedLinks = links.map((link) => {
 </div>
 
 <style>
-  div {
-    display: flex;
-    flex-direction: column;
+  .navbar {
+    display: inline-grid;
+    grid-template-columns: [start] 4fr [line2] 1fr [end];
+    column-gap: 3rem;
   }
   nav {
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
   }
   nav * {
-    padding: 0 5px 0 5px;
+    padding: 1rem;
   }
   nav a {
     font-weight: 600;
+    line-height: 10;
   }
 </style>
