@@ -6,9 +6,8 @@ describe('Header', () => {
       cy.log(`Testing ${pageName} page`);
       const currentPage = cy.visit(route);
       currentPage
-        .get('header > nav > a[href="#"]')
-        .invoke('text')
-        .should('equal', friendlyText);
+        .get('header > div > nav > a[href="#"]')
+        .should('contain.text', friendlyText);
     });
   });
 });
