@@ -8,6 +8,7 @@ on:
       - '**.tsx'
       - '**.jsx'
       - '**.astro'
+      - 'src/content/*'
   workflow_dispatch:
 
 permissions:
