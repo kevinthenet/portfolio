@@ -19,9 +19,18 @@ const formattedLinks = links.map((link) => {
 
 <div class="navbar">
   <nav>
-    {formattedLinks.map((link) => <a href={link.url}>{link.name}</a>)}
+    {
+      // we have to add to the index because of the special value of tabindex 0
+      formattedLinks.map((link, index) => (
+        <a
+          href={link.url}
+          tabindex={index + 1}>
+          {link.name}
+        </a>
+      ))
+    }
   </nav>
-  <ToggleViewButton />
+  <ToggleViewButton tabIndex={formattedLinks.length + 1} />
 </div>
 
 <style>
@@ -40,6 +49,6 @@ const formattedLinks = links.map((link) => {
   }
   nav a {
     font-weight: 600;
-    line-height: 10;
+    line-height: 5;
   }
 </style>
