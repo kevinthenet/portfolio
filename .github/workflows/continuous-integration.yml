@@ -55,11 +55,3 @@ jobs:
           name: ci-${{ github.sha }}
       - name: Start up dev server and run Cypress test suite
         run: npm run dev & npm run test
-  cleanup:
-    runs-on: ubuntu-latest
-    needs:
-      - lint-checks
-      - cypress-tests
-    steps:
-      - name: Remove Artifact
-        uses: actions/
