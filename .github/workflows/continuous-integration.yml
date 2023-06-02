@@ -14,44 +14,21 @@ permissions:
   contents: read
 
 jobs:
-  setup:
+  lint-checks:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
       - name: Install packages
         run: npm install
-      - name: Upload NPM Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          retention-days: 1
-          name: ci-${{ github.sha }}
-          path: |
-            node_modules/
-            package-lock.json
-  lint-checks:
-    needs:
-      - setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-      - name: Download NPM Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: ci-${{ github.sha }}
       - name: Run Lint checks
         run: npm run prettier:check
   cypress-tests:
-    needs:
-      - setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-      - name: Download NPM Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: ci-${{ github.sha }}
+      - name: Install packages
+        run: npm install
       - name: Start up dev server and run Cypress test suite
         run: npm run dev & npm run test
