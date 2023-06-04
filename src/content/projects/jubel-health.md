@@ -41,6 +41,4 @@ photos:
   ]
 ---
 
-<!-- Describe the work you did for Jubel Health here -->
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorum dolore alias corporis, consequuntur culpa obcaecati nam quae exercitationem, quaerat ipsa esse ex eligendi quisquam, numquam dolor recusandae eveniet deserunt.
+Jubel Health is a product aimed at solving one of the most pressing issues that patients encounter when going through the fertility treatment process

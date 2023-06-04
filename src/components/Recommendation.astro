@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import Card from '../components/Card.astro';
+
+export interface Props {
+  recommendation: CollectionEntry<'recommendations'>;
+}
+
+const { recommendation } = Astro.props;
+const { Content } = await recommendation.render();
+---
+
+<Card
+  isClickable={false}
+  title={recommendation.data.name}
+  subtitle={recommendation.data.title}
+  annotation={recommendation.data.relation}
+  image={recommendation.data.profileImage}
+>
+  <Content />
+</Card>

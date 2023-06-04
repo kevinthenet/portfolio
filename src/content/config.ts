@@ -26,7 +26,17 @@ const projectCollection = defineCollection({
   }),
 });
 
+const recommendationCollection = defineCollection({
+  schema: z.object({
+    name: z.string(),
+    title: z.string(),
+    relation: z.string(),
+    profileImage: imageSchema,
+  }),
+});
+
 export const collections = {
   blog: blogCollection,
   projects: projectCollection,
+  recommendations: recommendationCollection,
 };

@@ -1,6 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/Base.astro';
 import SocialButtons from '../components/SocialButtons.astro';
+import Recommendation from '../components/Recommendation.astro';
+
+const recommendations = await getCollection('recommendations');
 ---
 
 <BaseLayout title="Portfolio">
@@ -24,6 +28,9 @@ import SocialButtons from '../components/SocialButtons.astro';
       <a href="Kevin-Castro-Resume.pdf" class="button" download
         >Download Resume</a
       >
+    </div>
+    <div class="recommendations">
+      {recommendations.map((rec) => <Recommendation recommendation={rec} />)}
     </div>
   </main>
 </BaseLayout>
@@ -75,6 +82,12 @@ import SocialButtons from '../components/SocialButtons.astro';
   .resume {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin: 1rem 0;
+  }
+  .recommendations {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: repeat(200rem);
+    row-gap: 2rem;
   }
 </style>

@@ -10,7 +10,12 @@ describe('Projects page', async () => {
     page.get('title').should('have.text', PROJECTS.title);
   });
 
-  it('contains some cards with project information on the page', () => {
-    page.get('.text-content').should('exist');
+  it('contains some clickable cards with project information on the page', () => {
+    const card = page.get('.card').first();
+    card.should('exist');
+    // navigates away from current page
+    card.click();
+    // verify that we are no longer on the projects page
+    cy.location('pathname').should('not.equal', `${PROJECTS.route}`);
   });
 });

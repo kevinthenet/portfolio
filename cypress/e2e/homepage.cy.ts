@@ -59,4 +59,32 @@ describe('Home page', () => {
       cy.readFile(resumeFile, { timeout: 15000 }).should('exist');
     });
   });
+
+  context('Recommendations section', () => {
+    let recommendations: Cypress.Chainable;
+    beforeEach(() => {
+      recommendations = page.get('.recommendations');
+    });
+
+    it('every recommendation has an image that loads', () => {
+      recommendations.children().each((recommendation) => {
+        const image = recommendation.find('img');
+        expect(image).to.be.visible;
+      });
+    });
+
+    it('every recommendation contains a title, a subtitle, an annotation, and some text content', () => {
+      recommendations.children().each((recommendation) => {
+        const title = recommendation.find('h2');
+        const subtitle = recommendation.find('h4');
+        const annotation = recommendation.find('sub');
+        const content = recommendation.find('.content');
+
+        [title, subtitle, annotation, content].forEach((el) => {
+          expect(el).to.exist;
+          expect(el).to.contain.text;
+        });
+      });
+    });
+  });
 });
