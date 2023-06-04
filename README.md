@@ -2,6 +2,8 @@
 
 ![Continuous Integration Badge](https://github.com/kevinthemself/portfolio/actions/workflows/continuous-integration.yml/badge.svg)
 
+![Continuous Deployment Badge](https://github.com/kevinthemself/portfolio/actions/workflows/continuous-deployment.yml/badge.svg)
+
 ## 🏗️ Project Setup
 
 To install and run this project locally:
