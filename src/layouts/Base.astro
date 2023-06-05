@@ -67,11 +67,11 @@ const { title } = Astro.props;
         font-weight: bold;
         background: var(--highlight-background);
         color: var(--highlight);
-        border-radius: 4px;
+        border-radius: 0.25em;
         padding: 0.3em 0.45em;
       }
       pre {
-        border-radius: 4px;
+        border-radius: 0.25em;
       }
       pre code {
         background: none; /* any pre-formatted code blocks (i.e. not inline code) should have no background */
@@ -95,7 +95,7 @@ const { title } = Astro.props;
         text-decoration: none;
         color: var(--heading-color);
       }
-      a:is(:hover, :focus-within) {
+      article > p > a:is(:hover, :focus-within) {
         color: var(--analogue);
         transition: color 0.2s, text-shadow 0.2s ease-in;
         text-shadow: 0.05em 0 var(--analogue); /* little workaround to simulate bolding without layout change */
@@ -108,13 +108,13 @@ const { title } = Astro.props;
         background: linear-gradient(45deg, var(--accent), var(--analogue));
         background-position: 100%;
         border-color: transparent;
-        border-radius: 0.6em;
-        border-width: 2px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5em;
+        border-width: 0.125em;
+        box-shadow: 0.25em 0.25em 0.375em -0.0625em rgba(0, 0, 0, 0.1),
+          0.25em 0.125em 0.25em -0.125em rgba(0, 0, 0, 0.1);
         color: var(--background-color);
         font-weight: 600;
-        padding: 10px 20px;
+        padding: 0.75em 1.5em;
         transition: color 0.2s ease-in;
       }
       .button:is(:hover, :focus-within) {
@@ -123,12 +123,12 @@ const { title } = Astro.props;
         border-color: var(--accent);
         border-style: solid;
         color: var(--text-color);
-        margin: -2px 3px; /* Prevents resizing due to border becoming visible */
+        margin: -0.125em 0.375em; /* Prevents resizing due to border becoming visible,  */
       }
       .text-content {
         line-height: 1.6;
         margin: 1em 0;
-        border: 1px solid rgba(var(--accent), 25%);
+        border: 0.25rem solid rgba(var(--accent), 25%);
         padding: 1em;
         border-radius: 0.4em;
       }
