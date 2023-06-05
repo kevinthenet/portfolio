@@ -7,7 +7,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <section>
+  <section class="hero">
     <h1>{frontmatter.title}</h1>
     <h3>{frontmatter.summary}</h3>
     <FormattedDate timestamp={frontmatter.publishDate} />
@@ -21,10 +21,7 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 
 <style>
-  section {
-    text-align: center;
-  }
-  time {
+  .hero {
     text-align: center;
   }
   pre code {
