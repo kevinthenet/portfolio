@@ -17,6 +17,9 @@ const { data: project } = Astro.props;
       <article class="text-content">
         <slot />
       </article>
+      <a href="/projects" class="return-breadcrumb"
+        ><span>&larr;</span> Back to Projects</a
+      >
     </div>
     <div class="spotlight">
       <div class="visual-content">
@@ -45,7 +48,6 @@ const { data: project } = Astro.props;
         </div>
       </div>
     </div>
-    <a href="/projects"><span>&larr;</span> Back to Projects</a>
   </main>
 </BaseLayout>
 
@@ -54,7 +56,7 @@ const { data: project } = Astro.props;
     display: grid;
     grid-template-columns: repeat(2, 50%);
     column-gap: 1rem;
-    overflow: unset;
+    overflow: visible;
     max-width: 200ch;
   }
   a {
@@ -64,8 +66,11 @@ const { data: project } = Astro.props;
     display: flex;
     flex-direction: column;
   }
-  .brief a {
+  .project-page {
     text-align: right;
+  }
+  .return-breadcrumb {
+    text-align: left;
   }
   .spotlight {
     display: flex;
@@ -75,6 +80,8 @@ const { data: project } = Astro.props;
   .visual-content {
     display: flex;
     justify-content: center;
+    width: 100%;
+    max-height: 24rem;
   }
   .textual-content {
     justify-self: flex-end;
