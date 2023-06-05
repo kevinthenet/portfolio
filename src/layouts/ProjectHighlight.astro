@@ -38,7 +38,7 @@ const { data: project } = Astro.props;
         <div class="skills">
           <span>Skills</span>
           <hr />
-          <ul class="skills-list">
+          <ul>
             {project.skills.map((skill) => <li>{skill}</li>)}
           </ul>
         </div>
@@ -84,7 +84,7 @@ const { data: project } = Astro.props;
     grid-template-columns: repeat(2, 50%);
     column-gap: 1rem;
   }
-  .skills-list {
+  ul {
     list-style-type: none;
     list-style-position: outside;
     text-align: right;
