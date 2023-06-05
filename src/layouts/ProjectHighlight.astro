@@ -9,27 +9,23 @@ const { data: project } = Astro.props;
 ---
 
 <BaseLayout title={project.name}>
-  <main>
+  <main class="project-highlight">
     <div class="brief">
       <h1>{project.name}</h1>
       <h3>{project.subtitle}</h3>
-      <a href={project.link} class="project-page">Project Page &rarr;</a>
+      <a href={project.link} class="project-link project-page"
+        >Project Page &rarr;</a
+      >
       <article class="text-content">
         <slot />
       </article>
-      <a href="/projects" class="return-breadcrumb"
+      <a href="/projects" class="project-link return-breadcrumb"
         ><span>&larr;</span> Back to Projects</a
       >
     </div>
     <div class="spotlight">
       <div class="visual-content">
-        {
-          project.photos ? (
-            <div class="photos">
-              <Slideshow photos={project.photos} />
-            </div>
-          ) : null
-        }
+        {project.photos ? <Slideshow photos={project.photos} /> : null}
       </div>
       <div class="textual-content">
         <div class="technologies">
@@ -42,7 +38,7 @@ const { data: project } = Astro.props;
         <div class="skills">
           <span>Skills</span>
           <hr />
-          <ul>
+          <ul class="skills-list">
             {project.skills.map((skill) => <li>{skill}</li>)}
           </ul>
         </div>
@@ -52,14 +48,14 @@ const { data: project } = Astro.props;
 </BaseLayout>
 
 <style>
-  main {
+  .project-highlight {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     column-gap: 1rem;
     overflow: visible;
     max-width: 200ch;
   }
-  a {
+  .project-link {
     color: var(--accent);
   }
   .brief {
@@ -81,7 +77,6 @@ const { data: project } = Astro.props;
     display: flex;
     justify-content: center;
     width: 100%;
-    max-height: 24rem;
   }
   .textual-content {
     justify-self: flex-end;
@@ -89,7 +84,7 @@ const { data: project } = Astro.props;
     grid-template-columns: repeat(2, 50%);
     column-gap: 1rem;
   }
-  ul {
+  .skills-list {
     list-style-type: none;
     list-style-position: outside;
     text-align: right;
