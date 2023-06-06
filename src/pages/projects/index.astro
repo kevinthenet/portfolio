@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 
 import BaseLayout from '../../layouts/Base.astro';
+
 import Card from '../../components/Card.astro';
 
 const projects = await getCollection('projects');
@@ -15,8 +16,8 @@ const projects = await getCollection('projects');
         projects.map((project) => (
           <Card
             isClickable={true}
-            href={`/projects/${project.slug}`}
             title={project.data.name}
+            href={`/projects/${project.slug}`}
             body={project.data.subtitle}
           />
         ))
@@ -26,10 +27,12 @@ const projects = await getCollection('projects');
 </BaseLayout>
 
 <style>
+  main {
+    width: var(--reader-width);
+  }
   .project-grid {
     display: grid;
     grid-template-columns: repeat(2, 50% [col-start]);
     column-gap: 1em;
-    row-gap: 1em;
   }
 </style>
