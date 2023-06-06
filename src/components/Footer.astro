@@ -6,6 +6,11 @@ import SocialButtons from './SocialButtons.astro';
   {Astro.url.pathname !== '/' && <SocialButtons />}
   <div>
     <p>
+      Interested in chatting about a project? Send me a message at <a
+        href="mailto:hello@kevincastro.dev">hello@kevincastro.dev</a
+      >
+    </p>
+    <p>
       Built by Kevin Castro with &lt;3 using <a href="https://astro.build/"
         >Astro</a
       >
@@ -22,6 +27,8 @@ import SocialButtons from './SocialButtons.astro';
   }
   div {
     justify-content: center;
-    display: inline-flex;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
   }
 </style>
