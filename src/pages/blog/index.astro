@@ -27,6 +27,9 @@ const blogEntries = await getCollection('blog');
 </BaseLayout>
 
 <style>
+  main {
+    width: var(--default-width);
+  }
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(1, 100% [col-start]);
