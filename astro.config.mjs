@@ -7,6 +7,8 @@ export default defineConfig({
   site: 'https://kevincastro.dev',
   integrations: [react()],
   markdown: {
-    wrap: true,
+    shikiConfig: {
+      wrap: true,
+    }
   },
 });
