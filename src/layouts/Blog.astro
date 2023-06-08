@@ -1,8 +1,14 @@
 ---
+import type { MarkdownLayoutProps } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+
 import BaseLayout from './Base.astro';
 
 import FormattedDate from '../components/FormattedDate.astro';
 
+import '../styles/blog-post.css'; // the only way I was able to use custom styling for markdown generated HTML
+
+type Props = MarkdownLayoutProps<CollectionEntry<'blog'>['data']>;
 const { frontmatter } = Astro.props;
 ---
 
@@ -26,8 +32,5 @@ const { frontmatter } = Astro.props;
   }
   .hero {
     text-align: center;
-  }
-  pre code {
-    background: none;
   }
 </style>

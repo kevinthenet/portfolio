@@ -1,0 +1,22 @@
+pre {
+  border-radius: 0.25em;
+  margin: 0 20%;
+}
+
+pre > code {
+  background: none; /* any pre-formatted code blocks (i.e. not inline code) should have no background */
+}
+
+pre > p {
+  padding: 1em;
+  text-align: center;
+}
+
+blockquote > p {
+  text-align: center;
+}
+
+img {
+  max-width: 60%;
+  margin: 0 20%;
+}
