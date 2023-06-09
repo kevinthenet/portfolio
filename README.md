@@ -64,5 +64,5 @@ All commands are run from the root of the project:
 | `npm run astro ...`         | Run CLI commands like `astro add`, `astro check`               |
 | `npm run astro -- --help`   | Get help using the Astro CLI                                   |
 | `npm run test`              | Run test jobs locally                                          |
-| `npm run test:cypress:spec` | run a specific component test (append `-- path/to/test.cy.ts`) |
+| `npm run test:spec`         | run a specific component test (append `-- path/to/test.cy.ts`) |
 | `npm run test:cypress:open` | Start up Cypress server (for interactive test editing)         |
