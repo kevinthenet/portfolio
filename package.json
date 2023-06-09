@@ -18,12 +18,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@astrojs/react": "^2.1.2",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.1",
-    "astro": "^2.3.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "astro": "^2.3.2"
   },
   "devDependencies": {
     "cypress": "^12.11.0",
