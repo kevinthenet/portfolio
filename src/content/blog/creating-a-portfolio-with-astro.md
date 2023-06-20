@@ -8,7 +8,7 @@ tags: ['development', 'astro']
 
 ## Let's create some requirements
 
-This is my second time around creating a portfolio from scratch. I had previously created [a repository](https://github.com/kevinthemself/castrokevin.com) for and hosted my portfolio by using static HTML/JS/CSS and added some fanciness using special fonts, CSS Libraries, etc. I didn't have as much of an eye for design, but, alas, I was young(er) and intrepid(er?), and every developer portfolio had ✨**parallax scrolling background images**✨ when I was looking at good examples of engineering portfolios, so that was the one **killer feature** I just needed to have.
+This is my second time around creating a portfolio from scratch. I had previously created [a repository](https://github.com/kevinthenet/castrokevin.com) for and hosted my portfolio by using static HTML/JS/CSS and added some fanciness using special fonts, CSS Libraries, etc. I didn't have as much of an eye for design, but, alas, I was young(er) and intrepid(er?), and every developer portfolio had ✨**parallax scrolling background images**✨ when I was looking at good examples of engineering portfolios, so that was the one **killer feature** I just needed to have.
 
 ![Old Portfolio home page with parallax scrolling background and an introduction for Kevin Castro as a full-stack engineer](/public/old-portfolio-home-page.gif 'Woo parallax image scrolling! 🤓')
 

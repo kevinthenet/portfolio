@@ -1,8 +1,8 @@
 # Kevin Castro's Portfolio
 
-![Continuous Integration Badge](https://github.com/kevinthemself/portfolio/actions/workflows/continuous-integration.yml/badge.svg)
+![Continuous Integration Badge](https://github.com/kevinthenet/portfolio/actions/workflows/continuous-integration.yml/badge.svg)
 
-![Continuous Deployment Badge](https://github.com/kevinthemself/portfolio/actions/workflows/continuous-deployment.yml/badge.svg)
+![Continuous Deployment Badge](https://github.com/kevinthenet/portfolio/actions/workflows/continuous-deployment.yml/badge.svg)
 
 ## 🏗️ Project Setup
 
