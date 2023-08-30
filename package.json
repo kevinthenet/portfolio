@@ -15,13 +15,16 @@
     "lint:check": "npx prettier --check . --config .prettierrc.json",
     "lint:fix": "npx prettier --write . --config .prettierrc.json",
     "pretty-quick": "pretty-quick",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "reset": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "astro": "^3.0.2"
+    "@astrojs/check": "^0.2.0",
+    "astro": "^3.0.2",
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "cypress": "^12.11.0",
+    "cypress": "^13.0.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "pretty-quick": "^3.1.3"
