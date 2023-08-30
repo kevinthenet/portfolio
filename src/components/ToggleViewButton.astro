@@ -17,7 +17,7 @@ const stateIcons = {
     dark: '\u{2600}',
   };
   const colorModeToggleButton = document.querySelector('a.color-mode-toggle');
-  const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);
+  const capitalize = (str: string) => str[0]!.toUpperCase() + str.slice(1);
   const updateButton = (colorMode: keyof typeof stateIcons) => {
     const prevStateText = `Toggle ${capitalize(colorMode)} Mode`;
     colorModeToggleButton!.setAttribute('aria-label', prevStateText);
@@ -35,7 +35,7 @@ const stateIcons = {
     updateButton('light');
   }
 
-  const toggleColorMode = (e: Event) => {
+  const toggleColorMode = () => {
     const currentState = document.documentElement.getAttribute('color-mode');
     let nextState: keyof typeof stateIcons;
 

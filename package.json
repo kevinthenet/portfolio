@@ -18,7 +18,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "astro": "^2.3.2"
+    "astro": "^3.0.2"
   },
   "devDependencies": {
     "cypress": "^12.11.0",

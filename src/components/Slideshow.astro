@@ -13,7 +13,7 @@ const { photos } = Astro.props;
   <a class="prev" href="" aria-label="Previous image">&larr;</a>
   <a class="next" href="" aria-label="Next image">&rarr;</a>
   <div class="breadcrumbs">
-    {photos.map((photo) => <span class="breadcrumb">&#x25A1;</span>)}
+    {photos.map((photo) => <span class="breadcrumb" id={photo.url}>&#x25A1;</span>)}
   </div>
 </div>
 
@@ -80,12 +80,12 @@ const { photos } = Astro.props;
     }
 
     // hide current picture and unset selected breadcrumb
-    slides[currentSlide].setAttribute('style', 'display: none;');
-    breadcrumbs[currentSlide].innerHTML = breadcrumbStates['unselected'];
+    slides[currentSlide]!.setAttribute('style', 'display: none;');
+    breadcrumbs[currentSlide]!.innerHTML = breadcrumbStates['unselected'];
 
     // show next slide and set selected breadcrumb
-    slides[index].setAttribute('style', 'display: block;');
-    breadcrumbs[index].innerHTML = breadcrumbStates['selected'];
+    slides[index]!.setAttribute('style', 'display: block;');
+    breadcrumbs[index]!.innerHTML = breadcrumbStates['selected'];
 
     currentSlide = index;
   }

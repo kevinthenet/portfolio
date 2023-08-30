@@ -21,8 +21,7 @@ export type Props = Clickable | NonClickable;
 
 // @ts-ignore ts(2339) - ignoring due to type guards being used in the component
 // but the props are expecting a static interface
-const { isClickable, title, subtitle, annotation, body, href, image } =
-  Astro.props;
+const { isClickable, title, subtitle, annotation, body, href, image } = Astro.props;
 ---
 
 <li class=`link-card ${isClickable ? 'clickable' : 'nonclickable'}`>

@@ -10,7 +10,7 @@ tags: ['development', 'astro']
 
 This is my second time around creating a portfolio from scratch. I had previously created [a repository](https://github.com/kevinthenet/castrokevin.com) for and hosted my portfolio by using static HTML/JS/CSS and added some fanciness using special fonts, CSS Libraries, etc. I didn't have as much of an eye for design, but, alas, I was young(er) and intrepid(er?), and every developer portfolio had ✨**parallax scrolling background images**✨ when I was looking at good examples of engineering portfolios, so that was the one **killer feature** I just needed to have.
 
-![Old Portfolio home page with parallax scrolling background and an introduction for Kevin Castro as a full-stack engineer](/public/old-portfolio-home-page.gif 'Woo parallax image scrolling! 🤓')
+![Old Portfolio home page with parallax scrolling background and an introduction for Kevin Castro as a full-stack engineer](/old-portfolio-home-page.gif 'Woo parallax image scrolling! 🤓')
 
 > Parallax scrolling feels like my "We didn't start the fire" reference for this era of web development
 
@@ -94,13 +94,13 @@ To me, cleanliness of a project is mostly about being able to find what you need
 
 Thankfully, the file-based nature of Astro lends itself to keeping things organized, but I did run into some issues while creating this portfolio in establishing some global style rules. Last time around I had used a self-hosted, minified version of [MaterializeCSS](https://materializecss.com/), and made minor tweaks on top of that by creating a custom stylesheet that would be used across the site. This allowed me to _really_ focus on cooler things like parallax images (heh) and a fun layout for my resume and create a _custom_ timeline layout by using a bunch of divs and the materialize layout grid (this was before things like CSS Grid):
 
-![Old Portfolio Resume page with a vertical timeline layout describing Kevin Castro's past work, like you might see in a resume](/public/old-portfolio-projects-page.gif "Parallax scrolling ain't got nothing on custom timeline layouts 😉")
+![Old Portfolio Resume page with a vertical timeline layout describing Kevin Castro's past work, like you might see in a resume](/old-portfolio-projects-page.gif "Parallax scrolling ain't got nothing on custom timeline layouts 😉")
 
 > Evidently, I really like card-based design for projects
 
 However, this time I wanted to use **as little customized CSS styling as possible**. Astro does not come with any default styling, so I created some styles I wanted to be consistent across all pages by creating a base layout with some global styles. Problem is, [the way these styles are imported](https://docs.astro.build/en/guides/styling/#cascading-order) at build time led to some inconsistency between the dev server and how the resulting preview build looked:
 
-![Current Portfolio Resume page with a comparison between the styling of the dev and preview build](/public/portfolio-styling-comparison.png 'Notice the difference in appearance for these two, ostensibly identical stylings')
+![Current Portfolio Resume page with a comparison between the styling of the dev and preview build](/portfolio-styling-comparison.png 'Notice the difference in appearance for these two, ostensibly identical stylings')
 
 > Yes, I made this screenshot in MSPaint and no, I won't say sorry.
 
