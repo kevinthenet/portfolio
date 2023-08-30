@@ -53,28 +53,33 @@ Any static assets, like images, are placed in the `public/` directory.
 
 ## 🧞 Project Commands
 
-All commands are run from the root of the project:
+All commands should be run from the root of the project:
 
-| Command                    | Action                                                         |
-| :------------------------- | :------------------------------------------------------------- |
-| `npm install`              | Installs dependencies                                          |
-| `npm run dev`              | Starts local dev server at `localhost:4321`                    |
-| `npm run build`            | Build your production site to `./dist/`                        |
-| `npm run preview`          | Preview your build locally, before deploying                   |
-| `npm run astro ...`        | Run CLI commands like `astro add`, `astro check`               |
-| `npm run astro -- --help`  | Get help using the Astro CLI                                   |
-| `npm run test`             | Run test jobs locally                                          |
-| `npm run test:spec`        | run a specific component test (append `-- path/to/test.cy.ts`) |
-| `npm run test:interactive` | Start up Cypress server (for interactive test editing)         |
+| Command                    | Action                                                           |
+| :------------------------- | :--------------------------------------------------------------- |
+| `npm start`                | Starts local dev server at `localhost:4321`                      |
+| `npm install`              | Installs dependencies                                            |
+| `npm run build`            | Build your production site to `./dist/`                          |
+| `npm run preview`          | Preview your build locally, before deploying                     |
+| `npm run astro ...`        | Run CLI commands like `astro add`, `astro check`                 |
+| `npm run astro -- --help`  | Get help using the Astro CLI                                     |
+| `npm run test`             | Run test jobs locally                                            |
+| `npm run test:spec`        | run a specific component test (append `-- path/to/test.cy.ts`)   |
+| `npm run test:interactive` | Start up Cypress server (for interactive test editing)           |
+| `npm run reset`            | Clears out the `dist` and `node_modules` directory for debugging |
 
 ## Local testing
 
 In order to run tests locally, you first need to spin up a local dev server for cypress to connect to.
 
-Run this command in a new terminal window
+Run this command in a new terminal:
 
-```bash
-npm run dev
+```sh
+npm start
 ```
 
-Then, run this command in another terminal window
+Then, run this command in a separate terminal:
+
+```sh
+npm run test
+```
