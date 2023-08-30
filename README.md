@@ -58,7 +58,7 @@ All commands are run from the root of the project:
 | Command                    | Action                                                         |
 | :------------------------- | :------------------------------------------------------------- |
 | `npm install`              | Installs dependencies                                          |
-| `npm run dev`              | Starts local dev server at `localhost:3000`                    |
+| `npm run dev`              | Starts local dev server at `localhost:4321`                    |
 | `npm run build`            | Build your production site to `./dist/`                        |
 | `npm run preview`          | Preview your build locally, before deploying                   |
 | `npm run astro ...`        | Run CLI commands like `astro add`, `astro check`               |
@@ -66,3 +66,15 @@ All commands are run from the root of the project:
 | `npm run test`             | Run test jobs locally                                          |
 | `npm run test:spec`        | run a specific component test (append `-- path/to/test.cy.ts`) |
 | `npm run test:interactive` | Start up Cypress server (for interactive test editing)         |
+
+## Local testing
+
+In order to run tests locally, you first need to spin up a local dev server for cypress to connect to.
+
+Run this command in a new terminal window
+
+```bash
+npm run dev
+```
+
+Then, run this command in another terminal window
