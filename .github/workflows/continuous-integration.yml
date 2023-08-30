@@ -24,6 +24,15 @@ jobs:
         run: npm install
       - name: Run Lint checks
         run: npm run lint:check
+  astro-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Install packages
+        run: npm install
+      - name: Run Astro checks
+        run: npm run astro check
   cypress-tests:
     runs-on: ubuntu-latest
     steps:
