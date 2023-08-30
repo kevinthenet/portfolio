@@ -53,7 +53,7 @@ const recommendations = await getCollection('recommendations');
   const positions = ['Full-Stack', 'Back-end', 'Front-end'];
   let position = positions[index];
 
-  setPositionTextContent(position);
+  setPositionTextContent(position!);
   positionElement.animate(fadeInOutKeyframes, POSITION_TEXT_INTERVAL_MS);
 
   setInterval(() => {
@@ -62,7 +62,7 @@ const recommendations = await getCollection('recommendations');
       index = 0;
     }
     position = positions[index];
-    setPositionTextContent(position);
+    setPositionTextContent(position!);
     // add 10ms as a buffer to prevent blinking
     positionElement.animate(fadeInOutKeyframes, POSITION_TEXT_INTERVAL_MS + 10);
   }, POSITION_TEXT_INTERVAL_MS);
