@@ -75,10 +75,10 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Start up dev server and run Cypress test suite
         run: |
-          pnpm dev > /tmp/astro-dev.log 2>&1 &
+          pnpm dev --host localhost > /tmp/astro-dev.log 2>&1 &
           DEV_PID=$!
           for i in $(seq 1 30); do
-            if curl -fsS http://127.0.0.1:4321 > /dev/null 2>&1; then
+            if curl -fsS http://localhost:4321/ > /dev/null 2>&1; then
               echo "Astro dev server is ready"
               break
             fi
@@ -89,7 +89,7 @@ jobs:
             fi
             sleep 2
           done
-          if ! curl -fsS http://127.0.0.1:4321 > /dev/null 2>&1; then
+          if ! curl -fsS http://localhost:4321/ > /dev/null 2>&1; then
             echo "Astro dev server did not become ready in time" >&2
             cat /tmp/astro-dev.log >&2
             exit 1
