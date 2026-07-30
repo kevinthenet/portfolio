@@ -17,7 +17,7 @@ const blogEntries = await getCollection('blog');
           <Card
             isClickable={true}
             title={blogEntry.data.title}
-            href={`/blog/${blogEntry.slug}`}
+            href={`/blog/${blogEntry.id}`}
             body={blogEntry.data.summary}
           />
         ))

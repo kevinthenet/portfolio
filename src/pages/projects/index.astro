@@ -17,7 +17,7 @@ const projects = await getCollection('projects');
           <Card
             isClickable={true}
             title={project.data.name}
-            href={`/projects/${project.slug}`}
+            href={`/projects/${project.id}`}
             body={project.data.subtitle}
           />
         ))

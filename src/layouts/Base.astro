@@ -12,21 +12,29 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en" color-mode="light">
+<!doctype html>
+<html
+  lang="en"
+  color-mode="light"
+>
   <Head title={title} />
   <body>
     <Header />
     <slot />
-    <Footer />        
+    <Footer />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0Z7MFLZV7E"></script>
-    <script>
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0Z7MFLZV7E"
+    ></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-0Z7MFLZV7E');
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-0Z7MFLZV7E');
     </script>
   </body>
 </html>

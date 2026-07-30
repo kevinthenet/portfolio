@@ -9,15 +9,15 @@
 To install and run this project locally:
 
 ```
-npm install
+pnpm ci
 ```
 
-This will install project dependencies.
+This will install project dependencies. The project is expected to run on Node 20+.
 
-To set up pre-commit hooks via the `husky` npm module:
+To set up pre-commit hooks via the `husky` pnpm module:
 
 ```
-npm run prepare
+pnpm prepare
 ```
 
 ## 🚀 Project Structure
@@ -55,18 +55,18 @@ Any static assets, like images, are placed in the `public/` directory.
 
 All commands should be run from the root of the project:
 
-| Command                    | Action                                                           |
-| :------------------------- | :--------------------------------------------------------------- |
-| `npm start`                | Starts local dev server at `localhost:4321`                      |
-| `npm install`              | Installs dependencies                                            |
-| `npm run build`            | Build your production site to `./dist/`                          |
-| `npm run preview`          | Preview your build locally, before deploying                     |
-| `npm run astro ...`        | Run CLI commands like `astro add`, `astro check`                 |
-| `npm run astro -- --help`  | Get help using the Astro CLI                                     |
-| `npm run test`             | Run test jobs locally                                            |
-| `npm run test:spec`        | run a specific component test (append `-- path/to/test.cy.ts`)   |
-| `npm run test:interactive` | Start up Cypress server (for interactive test editing)           |
-| `npm run reset`            | Clears out the `dist` and `node_modules` directory for debugging |
+| Command                 | Action                                                           |
+| :---------------------- | :--------------------------------------------------------------- |
+| `pnpm start`            | Starts local dev server at `localhost:4321`                      |
+| `pnpm install`          | Installs dependencies                                            |
+| `pnpm build`            | Build your production site to `./dist/`                          |
+| `pnpm preview`          | Preview your build locally, before deploying                     |
+| `pnpm astro ...`        | Run CLI commands like `astro add`, `astro check`                 |
+| `pnpm astro -- --help`  | Get help using the Astro CLI                                     |
+| `pnpm test`             | Run test jobs locally                                            |
+| `pnpm test:spec`        | run a specific component test (append `-- path/to/test.cy.ts`)   |
+| `pnpm test:interactive` | Start up Cypress server (for interactive test editing)           |
+| `pnpm reset`            | Clears out the `dist` and `node_modules` directory for debugging |
 
 ## Local testing
 
@@ -75,11 +75,11 @@ In order to run tests locally, you first need to spin up a local dev server for 
 Run this command in a new terminal:
 
 ```sh
-npm start
+pnpm start
 ```
 
 Then, run this command in a separate terminal:
 
 ```sh
-npm run test
+pnpm test
 ```

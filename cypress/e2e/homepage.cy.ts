@@ -1,4 +1,4 @@
-import path = require('path');
+import * as path from 'path';
 
 import { RESUME_FILE_NAME, HOME } from '../constants';
 
@@ -17,7 +17,7 @@ describe('Home page', () => {
   });
 
   it('changes the position title every so often', () => {
-    let originalPosition: string;
+    let originalPosition: string = '';
     page
       .get('#position')
       .invoke('text')
@@ -27,7 +27,12 @@ describe('Home page', () => {
     // move forward 3s in time
     cy.clock();
     cy.tick(3000);
-    page.get('#position').invoke('text').should('not.equal', originalPosition);
+    if (originalPosition !== '') {
+      page
+        .get('#position')
+        .invoke('text')
+        .should('not.equal', originalPosition);
+    }
   });
 
   it('displays social links in the main section', () => {

@@ -2,26 +2,29 @@
   "name": "kevin-castro-portfolio",
   "type": "module",
   "version": "1.0.0",
+  "packageManager": "pnpm@11.10.0",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "npm run test:cypress",
-    "test:spec": "npx cypress run -C cypress.config.js --spec",
-    "test:interactive": "npx cypress open -C cypress.config.js",
-    "test:cypress": "npx cypress run -C cypress.config.js",
-    "lint:check": "npx prettier --check . --config .prettierrc.json",
-    "lint:fix": "npx prettier --write . --config .prettierrc.json",
+    "test": "pnpm run test:cypress",
+    "test:spec": "pnpm exec cypress run -C cypress.config.js --spec",
+    "test:interactive": "pnpm exec cypress open -C cypress.config.js",
+    "test:cypress": "pnpm exec cypress run -C cypress.config.js",
+    "lint:check": "pnpm exec prettier --check . --config .prettierrc.json",
+    "lint:fix": "pnpm exec prettier --write . --config .prettierrc.json",
     "pretty-quick": "pretty-quick",
-    "prepare": "husky install",
-    "reset": "rm -rf dist node_modules"
+    "prepare": "husky install"
   },
   "dependencies": {
-    "@astrojs/check": "^0.2.0",
-    "astro": "^3.0.2",
-    "typescript": "^5.2.2"
+    "@astrojs/check": "^0.9.10",
+    "astro": "^7.1.6",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "cypress": "^13.0.0",
