@@ -9,16 +9,16 @@ const projects = await getCollection('projects');
 ---
 
 <BaseLayout
-  title="Projects"
+  title="Work"
   description="Case studies from Kevin Castro's work on secure, AI-powered, and regulated-industry systems."
 >
   <main>
-    <h1>// projects</h1>
+    <h1>// work</h1>
     <div class="scan-list">
       {
         projects.map((project) => (
           <ProjectScanRow
-            href={`/projects/${project.id}`}
+            href={`/work/${project.id}`}
             tag={project.data.tag}
             name={project.data.name}
             blurb={project.data.blurb}

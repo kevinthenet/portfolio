@@ -64,7 +64,7 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
         {
           selectedWork.map((project) => (
             <ProjectScanRow
-              href={`/projects/${project.id}`}
+              href={`/work/${project.id}`}
               tag={project.data.tag}
               name={project.data.name}
               blurb={project.data.blurb}
@@ -73,7 +73,7 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
           ))
         }
       </div>
-      <a class="all-work-link" href="/projects">$ ls -a /projects →</a>
+      <a class="all-work-link" href="/work">$ ls -a /work →</a>
     </section>
 
     <section class="witness">

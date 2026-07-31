@@ -1,5 +1,6 @@
 ---
-const labelText = `Toggle Dark Mode`;
+// Dark is the default theme; only an explicit stored preference for light overrides it.
+const labelText = `Toggle Light Mode`;
 const stateIcons = {
   light: '\u{263C}', // white sun with rays
   dark: '\u{2600}', // black sun with rays
@@ -7,7 +8,7 @@ const stateIcons = {
 ---
 
 <a class="color-mode-toggle" aria-label={labelText}>
-  {`${stateIcons['dark']} ${labelText}`}
+  {`${stateIcons['light']} ${labelText}`}
 </a>
 
 <script>
@@ -23,16 +24,10 @@ const stateIcons = {
     colorModeToggleButton!.textContent = `${stateIcons[colorMode]} ${prevStateText}`;
   };
 
-  if (
-    /* This condition checks whether the user has set a site preference for dark mode OR a OS-level preference for dark mode AND no site preference */
-    localStorage.getItem('color-mode') === 'dark' ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches &&
-      !localStorage.getItem('color-mode'))
-  ) {
-    // if true, set the site to dark mode and change button accordingly
-    document.documentElement.setAttribute('color-mode', 'dark');
-    updateButton('light');
-  }
+  // Dark is the default; an explicit stored preference is the only thing that overrides it.
+  const initialMode = localStorage.getItem('color-mode') === 'light' ? 'light' : 'dark';
+  document.documentElement.setAttribute('color-mode', initialMode);
+  updateButton(initialMode === 'dark' ? 'light' : 'dark');
 
   const toggleColorMode = () => {
     const currentState = document.documentElement.getAttribute('color-mode');
@@ -46,8 +41,8 @@ const stateIcons = {
         nextState = 'light';
         break;
       default:
-        // default to light mode
-        nextState = 'light';
+        // dark is the site default
+        nextState = 'dark';
     }
 
     // change style
