@@ -183,6 +183,121 @@ article {
   }
 }
 
+/* Ambient glitch: idle almost the entire loop, fuzzes briefly near the end.
+   Apply to an inline-block element with a matching data-text attribute. */
+.glitch-ambient {
+  position: relative;
+  display: inline-block;
+  animation: glitch-fuzz-base 6s infinite;
+}
+.glitch-ambient::before,
+.glitch-ambient::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.glitch-ambient::before {
+  color: var(--magenta);
+  animation: glitch-fuzz-a 6s infinite;
+}
+.glitch-ambient::after {
+  color: var(--cyan);
+  animation: glitch-fuzz-b 6s infinite;
+  animation-delay: 0.08s;
+}
+.glitch-ambient:hover::before,
+.glitch-ambient:hover::after {
+  animation-duration: 1.4s;
+}
+@keyframes glitch-fuzz-base {
+  0%,
+  91%,
+  93%,
+  95%,
+  100% {
+    transform: translate(0, 0) skew(0deg);
+  }
+  91.5% {
+    transform: translate(1px, 0) skew(-1deg);
+  }
+  93.5% {
+    transform: translate(-1px, 0) skew(1deg);
+  }
+  94.5% {
+    transform: translate(1px, 0) skew(-0.5deg);
+  }
+}
+@keyframes glitch-fuzz-a {
+  0%,
+  91%,
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0, 0);
+  }
+  91.5% {
+    opacity: 0.85;
+    clip-path: inset(10% 0 55% 0);
+    transform: translate(-3px, -1px);
+  }
+  92.5% {
+    opacity: 0.7;
+    clip-path: inset(60% 0 5% 0);
+    transform: translate(3px, 1px);
+  }
+  93.5% {
+    opacity: 0.8;
+    clip-path: inset(25% 0 45% 0);
+    transform: translate(-2px, 0);
+  }
+  94.5% {
+    opacity: 0.5;
+    clip-path: inset(50% 0 20% 0);
+    transform: translate(2px, 1px);
+  }
+  95.5% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes glitch-fuzz-b {
+  0%,
+  91%,
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0, 0);
+  }
+  91.5% {
+    opacity: 0.8;
+    clip-path: inset(55% 0 15% 0);
+    transform: translate(3px, 1px);
+  }
+  92.5% {
+    opacity: 0.7;
+    clip-path: inset(5% 0 65% 0);
+    transform: translate(-3px, -1px);
+  }
+  93.5% {
+    opacity: 0.75;
+    clip-path: inset(35% 0 30% 0);
+    transform: translate(2px, 0);
+  }
+  94.5% {
+    opacity: 0.5;
+    clip-path: inset(15% 0 55% 0);
+    transform: translate(-2px, 1px);
+  }
+  95.5% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0, 0);
+  }
+}
+
 /* corner bracket / scan-target frame, used sparingly on primary panels */
 .bracket-frame {
   position: relative;
@@ -244,7 +359,7 @@ article {
     color 0.15s ease;
 }
 .button::before {
-  content: '> ';
+  content: '$ ';
   color: var(--text-dim);
 }
 .button.primary,

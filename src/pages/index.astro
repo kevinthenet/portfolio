@@ -34,11 +34,11 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
         <span class="ok">[ OK ]</span> clearance: PHI / HIPAA-grade systems verified
       </p>
       <p class="boot">
-        <span class="ok">[ OK ]</span> all systems nominal<span class="cursor"></span>
+        <span class="ok">[ OK ]</span> all systems nominal
       </p>
 
       <h1 class="headline">
-        <span class="glitch" data-text="Kevin Castro">Kevin Castro</span>
+        <span class="glitch-ambient" data-text="Kevin Castro">Kevin Castro</span>
       </h1>
       <p class="role">Senior Software Engineer</p>
       <p class="tagline">
@@ -100,6 +100,35 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
     font-size: 0.8em;
     color: var(--text-dim);
     margin: 0 0 0.35em;
+    opacity: 0;
+    animation: boot-line-in 0.4s ease forwards;
+  }
+  .boot:nth-of-type(1) {
+    animation-delay: 0.1s;
+  }
+  .boot:nth-of-type(2) {
+    animation-delay: 0.35s;
+  }
+  .boot:nth-of-type(3) {
+    animation-delay: 0.6s;
+  }
+  .boot:nth-of-type(4) {
+    animation-delay: 0.85s;
+  }
+  @keyframes boot-line-in {
+    from {
+      opacity: 0;
+      transform: translateX(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .boot {
+      opacity: 1;
+    }
   }
   .boot .ok {
     color: var(--green);
@@ -110,53 +139,6 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
   .headline {
     position: relative;
     margin: 1.25em 0 0.4em;
-  }
-  .glitch {
-    position: relative;
-    display: inline-block;
-  }
-  .glitch::before,
-  .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-  }
-  .headline:hover .glitch::before,
-  .headline:hover .glitch::after,
-  .headline:focus-within .glitch::before,
-  .headline:focus-within .glitch::after {
-    opacity: 0.85;
-  }
-  .glitch::before {
-    color: var(--magenta);
-    clip-path: inset(0 0 55% 0);
-    animation: glitch-a 0.6s steps(2) infinite;
-  }
-  .glitch::after {
-    color: var(--cyan);
-    clip-path: inset(45% 0 0 0);
-    animation: glitch-b 0.6s steps(2) infinite;
-  }
-  @keyframes glitch-a {
-    0%,
-    100% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(-2px, -1px);
-    }
-  }
-  @keyframes glitch-b {
-    0%,
-    100% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(2px, 1px);
-    }
   }
   .role {
     font-size: 1em;

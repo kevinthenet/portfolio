@@ -27,6 +27,7 @@ const formattedLinks = links.map((link) => {
         formattedLinks.map((link) => (
           <a href={link.url} class={link.isCurrent ? 'current' : ''}>
             {link.name}
+            {link.isCurrent && <span class="cursor" />}
           </a>
         ))
       }
@@ -107,6 +108,9 @@ const formattedLinks = links.map((link) => {
   }
   nav a.current::before {
     content: '$ pwd: ';
+  }
+  nav a .cursor {
+    margin-left: 0.3em;
   }
   .navbar-actions {
     display: flex;
