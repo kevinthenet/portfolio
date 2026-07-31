@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 
 import BaseLayout from '../../layouts/Base.astro';
 
-import Card from '../../components/Card.astro';
+import ProjectScanRow from '../../components/ProjectScanRow.astro';
 
 const projects = await getCollection('projects');
 ---
@@ -13,15 +13,16 @@ const projects = await getCollection('projects');
   description="Case studies from Kevin Castro's work on secure, AI-powered, and regulated-industry systems."
 >
   <main>
-    <h1>Projects</h1>
-    <div class="project-grid">
+    <h1>// projects</h1>
+    <div class="scan-list">
       {
         projects.map((project) => (
-          <Card
-            isClickable={true}
-            title={project.data.name}
+          <ProjectScanRow
             href={`/projects/${project.id}`}
-            body={project.data.subtitle}
+            tag={project.data.tag}
+            name={project.data.name}
+            blurb={project.data.blurb}
+            metric={project.data.subtitle}
           />
         ))
       }
@@ -33,10 +34,13 @@ const projects = await getCollection('projects');
   main {
     width: var(--reader-width);
   }
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 50% [col-start]);
-    column-gap: 1em;
-    row-gap: 1em;
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 0.75em;
+  }
+  .scan-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
   }
 </style>

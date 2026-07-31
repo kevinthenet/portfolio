@@ -1,14 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/Base.astro';
-import SocialButtons from '../components/SocialButtons.astro';
 import Recommendation from '../components/Recommendation.astro';
+import ProjectScanRow from '../components/ProjectScanRow.astro';
 
 const recommendations = await getCollection('recommendations');
 const RECOMMENDATION_ORDER = ['warren-wessels', 'amy-rich', 'izzy-young'];
 recommendations.sort(
   (a, b) => RECOMMENDATION_ORDER.indexOf(a.id) - RECOMMENDATION_ORDER.indexOf(b.id)
 );
+
+const projects = await getCollection('projects');
+const SELECTED_WORK_ORDER = ['rowland-ai', 'pvcase', 'redox'];
+const selectedWork = SELECTED_WORK_ORDER.map((id) =>
+  projects.find((project) => project.id === id)
+).filter((project) => project !== undefined);
 ---
 
 <BaseLayout
@@ -16,72 +22,213 @@ recommendations.sort(
   description="Kevin Castro is a senior software engineer who builds and hardens AI-powered systems in high-stakes, regulated domains."
 >
   <main>
-    <p class="greeting">Hi there!</p>
-    <h1>I'm <span class="text-gradient">Kevin Castro</span></h1>
-    <h2 class="subtitle">Senior Software Engineer</h2>
-    <article class="text-content">
-      <p>
+    <section class="hero bracket-frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <p class="boot"><span class="ok">[ OK ]</span> identity verified — kevin castro</p>
+      <p class="boot">
+        <span class="ok">[ OK ]</span> 7yrs exp: healthcare <span class="tag">/</span>
+        energy <span class="tag">/</span> conversational AI
+      </p>
+      <p class="boot">
+        <span class="ok">[ OK ]</span> clearance: PHI / HIPAA-grade systems verified
+      </p>
+      <p class="boot">
+        <span class="ok">[ OK ]</span> all systems nominal<span class="cursor"></span>
+      </p>
+
+      <h1 class="headline">
+        <span class="glitch" data-text="Kevin Castro">Kevin Castro</span>
+      </h1>
+      <p class="role">Senior Software Engineer</p>
+      <p class="tagline">
         I build and harden AI-powered systems in high-stakes, regulated
         domains, from pipeline to production.
       </p>
-    </article>
-    <div class="cta">
-      <p class="availability">Open to new opportunities</p>
-      <div class="cta-buttons">
-        <a href="mailto:hello@kevincastro.dev" class="button">Email me</a>
+      <div class="cta-row">
+        <a class="button" href="mailto:hello@kevincastro.dev">send_email()</a>
         <a
+          class="button secondary"
           href="https://www.linkedin.com/in/ortsacnivek/"
-          class="button"
-          rel="noreferrer">Message on LinkedIn</a
+          rel="noreferrer">ping linkedin --message</a
         >
       </div>
-    </div>
-    <SocialButtons />
-    <div class="recommendations">
-      {recommendations.map((rec) => <Recommendation recommendation={rec} />)}
-    </div>
+    </section>
+
+    <section class="work">
+      <div class="section-head">
+        <h2 class="section-title">// selected_work</h2>
+        <span class="section-note">hover to scan</span>
+      </div>
+      <div class="scan-list">
+        {
+          selectedWork.map((project) => (
+            <ProjectScanRow
+              href={`/projects/${project.id}`}
+              tag={project.data.tag}
+              name={project.data.name}
+              blurb={project.data.blurb}
+              metric={project.data.subtitle}
+            />
+          ))
+        }
+      </div>
+      <a class="all-work-link" href="/projects">$ ls -a /projects →</a>
+    </section>
+
+    <section class="witness">
+      <div class="section-head">
+        <h2 class="section-title">// transmissions_received</h2>
+      </div>
+      <div class="recommendations">
+        {recommendations.map((rec) => <Recommendation recommendation={rec} />)}
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
 <style>
   main {
-    max-width: var(--default-width);
+    max-width: var(--reader-width);
+    width: 100%;
   }
-  .greeting {
-    font-size: 3em;
+  .hero {
+    padding: 1.75em 1.75em 2.25em;
+    margin-bottom: 3em;
+  }
+  .boot {
+    font-size: 0.8em;
+    color: var(--text-dim);
+    margin: 0 0 0.35em;
+  }
+  .boot .ok {
+    color: var(--green);
+  }
+  .boot .tag {
+    opacity: 0.6;
+  }
+  .headline {
+    position: relative;
+    margin: 1.25em 0 0.4em;
+  }
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+  }
+  .headline:hover .glitch::before,
+  .headline:hover .glitch::after,
+  .headline:focus-within .glitch::before,
+  .headline:focus-within .glitch::after {
+    opacity: 0.85;
+  }
+  .glitch::before {
+    color: var(--magenta);
+    clip-path: inset(0 0 55% 0);
+    animation: glitch-a 0.6s steps(2) infinite;
+  }
+  .glitch::after {
+    color: var(--cyan);
+    clip-path: inset(45% 0 0 0);
+    animation: glitch-b 0.6s steps(2) infinite;
+  }
+  @keyframes glitch-a {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-2px, -1px);
+    }
+  }
+  @keyframes glitch-b {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(2px, 1px);
+    }
+  }
+  .role {
+    font-size: 1em;
+    letter-spacing: 0.04em;
+    color: var(--green);
+    margin: 0 0 1.5em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .tagline {
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.08em;
+    max-width: 52ch;
+    margin: 0 0 2.1em;
+  }
+  .cta-row {
+    display: flex;
+    gap: 0.85em;
+    flex-wrap: wrap;
+  }
+
+  .work {
+    padding: 0 0 4em;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.85em;
+    margin-bottom: 1.5em;
+    flex-wrap: wrap;
+  }
+  .section-title {
     font-weight: 800;
+    font-size: 1em;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     margin: 0;
   }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
+  .section-note {
+    font-size: 0.7em;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
   }
-  .subtitle {
-    text-align: right;
-  }
-  .cta {
+  .scan-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 1em 0;
+    gap: 1em;
   }
-  .availability {
-    margin: 0 0 0.5em;
+  .all-work-link {
+    display: inline-block;
+    margin-top: 1.5em;
+    font-size: 0.85em;
+    color: var(--green);
   }
-  .cta-buttons {
-    display: flex;
-    justify-content: center;
+  .all-work-link:hover {
+    color: var(--magenta);
   }
-  .cta-buttons a {
-    margin: 0 0.5em;
+
+  .witness {
+    padding: 0 0 3em;
   }
   .recommendations {
     display: grid;
-    justify-content: center;
-    grid-template-rows: repeat(200em);
-    row-gap: 2em;
+    row-gap: 1.25em;
+  }
+
+  @media (max-width: 700px) {
+    .hero {
+      padding: 1.5em 1.25em 2em;
+    }
   }
 </style>

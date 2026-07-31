@@ -1,6 +1,8 @@
 pre {
   border-radius: 0.25em;
-  margin: 0 20%;
+  margin: 0 auto;
+  max-width: 80%;
+  border: 1px solid var(--border);
 }
 
 pre > code {
@@ -17,6 +19,13 @@ blockquote > p {
 }
 
 img {
-  max-width: 60%;
-  margin: 0 20%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+  img {
+    max-width: 60%;
+  }
 }

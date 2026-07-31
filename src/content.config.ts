@@ -23,6 +23,8 @@ const projectCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     subtitle: z.string(),
+    tag: z.string(),
+    blurb: z.string(),
     link: z.string(),
     technology_used: z.array(z.string()),
     skills: z.array(z.string()),

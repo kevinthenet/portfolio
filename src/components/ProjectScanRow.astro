@@ -1,0 +1,95 @@
+---
+export interface Props {
+  href: string;
+  tag: string;
+  name: string;
+  blurb: string;
+  metric: string;
+}
+
+const { href, tag, name, blurb, metric } = Astro.props;
+---
+
+<a class="scan-item bracket-frame" href={href}>
+  <span class="corner tl"></span><span class="corner tr"></span>
+  <span class="corner bl"></span><span class="corner br"></span>
+  <span class="scan-tag">{tag}</span>
+  <span class="scan-body">
+    <h3>{name}</h3>
+    <p>{blurb}</p>
+  </span>
+  <span class="scan-result tabular">
+    <span class="scanning">scanning</span>
+    <span class="found">{metric}</span>
+  </span>
+</a>
+
+<style>
+  .scan-item {
+    padding: 1.1em 1.3em;
+    background: var(--bg-card);
+    text-decoration: none;
+    color: var(--text);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.25em;
+    align-items: center;
+    border: 1px solid transparent;
+  }
+  .scan-tag {
+    font-size: 0.68em;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 0.3em 0.5em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .scan-body h3 {
+    margin: 0 0 0.2em;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .scan-body p {
+    margin: 0;
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.88em;
+    color: var(--text-dim);
+  }
+  .scan-result {
+    text-align: right;
+    font-size: 0.78em;
+    min-width: 17ch;
+  }
+  .scan-result .scanning {
+    color: var(--text-dim);
+  }
+  .scan-result .scanning::after {
+    content: '...';
+  }
+  .scan-result .found {
+    display: none;
+    color: var(--green);
+    font-weight: 700;
+    text-shadow: 0 0 8px color-mix(in srgb, var(--green) 55%, transparent);
+  }
+  .scan-item:hover .scanning,
+  .scan-item:focus-visible .scanning {
+    display: none;
+  }
+  .scan-item:hover .found,
+  .scan-item:focus-visible .found {
+    display: block;
+  }
+
+  @media (max-width: 760px) {
+    .scan-item {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+    .scan-result {
+      text-align: left;
+    }
+  }
+</style>

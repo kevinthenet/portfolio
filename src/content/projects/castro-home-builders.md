@@ -1,6 +1,8 @@
 ---
 name: Castro Home Builders
 subtitle: Rebuilt for $0 hosting, ~100 visits/month
+tag: Construction
+blurb: Astro rebuild and rebrand for a family business.
 link: https://castrohomebuilders.com/
 technology_used: ['Javascript', 'Astro', 'TailwindCSS', 'AlpineJS', 'FormKeep']
 skills: ['Website Development', 'CI/CD']

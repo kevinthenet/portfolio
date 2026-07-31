@@ -1,6 +1,8 @@
 ---
 name: Redox
 subtitle: Millions of PHI records/day at 99.999% uptime
+tag: Healthcare
+blurb: PHI exchange at scale for health systems and vendors.
 link: https://www.redoxengine.com/
 technology_used:
   [

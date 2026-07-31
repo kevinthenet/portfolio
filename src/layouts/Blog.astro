@@ -21,15 +21,31 @@ const { data: post } = Astro.props;
     <article class="text-content">
       <slot />
     </article>
-    <a href="/blog"><span>&larr;</span>Back to Blog</a>
+    <a class="back-link" href="/blog">$ cd ..<span>&nbsp;back to blog</span></a>
   </main>
 </BaseLayout>
 
 <style>
   article {
     width: var(--reader-width);
+    max-width: 100%;
+    padding: 1.5em;
   }
   .hero {
     text-align: center;
+    padding: 1.5em;
+  }
+  .hero h3 {
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-weight: normal;
+    color: var(--text-dim);
+  }
+  .back-link {
+    display: inline-block;
+    margin-top: 1em;
+    color: var(--green);
+  }
+  .back-link:hover {
+    color: var(--magenta);
   }
 </style>

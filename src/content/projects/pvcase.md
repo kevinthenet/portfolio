@@ -1,6 +1,8 @@
 ---
 name: PVcase
 subtitle: Scaled ML product from $500K to $2MM ARR
+tag: Solar / ML
+blurb: Scaling backend and ML for a prospect-capacity product.
 link: https://www.pvcase.com/
 technology_used:
   [

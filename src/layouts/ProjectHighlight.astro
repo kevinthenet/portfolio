@@ -10,20 +10,23 @@ const { data: project } = Astro.props;
 
 <BaseLayout title={project.name} description={project.subtitle}>
   <main class="project-highlight">
-    <div class="brief">
+    <div class="brief bracket-frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <span class="tag">{project.tag}</span>
       <h1>{project.name}</h1>
       <h3>{project.subtitle}</h3>
       <a
         href={project.link}
         class="project-link project-page"
         target="_blank"
-        rel="noreferrer">Project Page &rarr;</a
+        rel="noreferrer">$ open project →</a
       >
       <article class="text-content">
         <slot />
       </article>
       <a href="/projects" class="project-link return-breadcrumb"
-        ><span>&larr;</span> Back to Projects</a
+        >$ cd .. <span>back to projects</span></a
       >
     </div>
     <div class="spotlight">
@@ -31,18 +34,20 @@ const { data: project } = Astro.props;
         {project.photos ? <Slideshow photos={project.photos} /> : null}
       </div>
       <div class="textual-content">
-        <div class="technologies">
-          <span>Technologies</span>
-          <hr />
-          <ul>
-            {project.technology_used.map((technology) => <li>{technology}</li>)}
+        <div class="chip-group">
+          <span class="chip-label">technologies</span>
+          <ul class="chips">
+            {project.technology_used.map((technology) => (
+              <li class="chip">{technology}</li>
+            ))}
           </ul>
         </div>
-        <div class="skills">
-          <span>Skills</span>
-          <hr />
-          <ul>
-            {project.skills.map((skill) => <li>{skill}</li>)}
+        <div class="chip-group">
+          <span class="chip-label">skills</span>
+          <ul class="chips">
+            {project.skills.map((skill) => (
+              <li class="chip chip-accent">{skill}</li>
+            ))}
           </ul>
         </div>
       </div>
@@ -53,28 +58,52 @@ const { data: project } = Astro.props;
 <style>
   .project-highlight {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
-    column-gap: 1em;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 1.5em;
     overflow: visible;
     width: var(--reader-width);
   }
   .project-link {
-    color: var(--accent);
+    color: var(--green);
+  }
+  .project-link:hover {
+    color: var(--magenta);
   }
   .brief {
     display: flex;
     flex-direction: column;
+    padding: 1.5em;
+  }
+  .tag {
+    align-self: flex-start;
+    font-size: 0.68em;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 0.3em 0.6em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 1em;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h3 {
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-weight: normal;
+    color: var(--text-dim);
   }
   .project-page {
-    text-align: right;
+    text-align: left;
+    margin-bottom: 0.5em;
   }
   .return-breadcrumb {
     text-align: left;
+    margin-top: 1em;
   }
   .spotlight {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 1.5em;
   }
   .visual-content {
     display: flex;
@@ -82,14 +111,49 @@ const { data: project } = Astro.props;
     width: 100%;
   }
   .textual-content {
-    justify-self: flex-end;
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    column-gap: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
   }
-  ul {
-    list-style-type: none;
-    list-style-position: outside;
-    text-align: right;
+  .chip-group {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1em 1.2em;
+  }
+  .chip-label {
+    display: block;
+    font-size: 0.72em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.75em;
+  }
+  .chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+  .chip {
+    font-size: 0.78em;
+    padding: 0.35em 0.7em;
+    border: 1px solid var(--border);
+    color: var(--green);
+    white-space: nowrap;
+  }
+  .chip-accent {
+    color: var(--cyan);
+  }
+
+  @media (max-width: 800px) {
+    .project-highlight {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+    .brief {
+      padding: 1.25em;
+    }
   }
 </style>

@@ -2,47 +2,153 @@
 import ToggleViewButton from './ToggleViewButton.astro';
 
 const links = [
-  { url: '/', name: 'Home' },
-  { url: '/about-me', name: 'About Me' },
-  { url: '/projects', name: 'Projects' },
-  { url: '/blog', name: 'Blog' },
+  { url: '/', name: 'home' },
+  { url: '/about-me', name: 'about' },
+  { url: '/projects', name: 'work' },
+  { url: '/blog', name: 'blog' },
 ];
 
 const formattedLinks = links.map((link) => {
-  if (Astro.url.pathname === link.url) {
-    link.url = '#';
-  }
-  return link;
+  const isCurrent = Astro.url.pathname === link.url;
+  return { ...link, isCurrent, url: isCurrent ? '#' : link.url };
 });
 ---
 
-<div class="navbar">
-  <nav>
-    {
-      formattedLinks.map((link) => (
-        <a href={link.url}>{link.name}</a>
-      ))
-    }
-  </nav>
-  <ToggleViewButton />
+<div class="terminal-chrome">
+  <div class="chrome-bar">
+    <span class="chrome-dot r"></span>
+    <span class="chrome-dot y"></span>
+    <span class="chrome-dot g"></span>
+    <span class="chrome-title">kevin@castro: ~/portfolio — zsh</span>
+  </div>
+  <div class="navbar">
+    <nav>
+      {
+        formattedLinks.map((link) => (
+          <a href={link.url} class={link.isCurrent ? 'current' : ''}>
+            {link.name}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="navbar-actions">
+      <span class="uplink-status"
+        ><span class="dot"></span>open_to_work: true</span
+      >
+      <ToggleViewButton />
+    </div>
+  </div>
 </div>
 
 <style>
+  .terminal-chrome {
+    border: 1px solid var(--border);
+    border-radius: 6px 6px 0 0;
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 1040px;
+  }
+  .chrome-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.6em 0.9em;
+    border-bottom: 1px solid var(--border);
+  }
+  .chrome-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .chrome-dot.r {
+    background: #ff5f56;
+  }
+  .chrome-dot.y {
+    background: #ffbd2e;
+  }
+  .chrome-dot.g {
+    background: #27c93f;
+  }
+  .chrome-title {
+    margin: 0 auto;
+    font-size: 0.72em;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
   .navbar {
-    display: inline-grid;
-    grid-template-columns: [start] 4fr [line2] 1fr [end];
-    column-gap: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    flex-wrap: wrap;
+    padding: 0.5em 1em;
   }
   nav {
     display: flex;
-    justify-content: space-around;
-    text-align: center;
-  }
-  nav * {
-    padding: 1em;
+    gap: 1.5em;
+    flex-wrap: wrap;
   }
   nav a {
-    font-weight: 600;
-    line-height: 5;
+    font-size: 0.85em;
+    text-decoration: none;
+    color: var(--text-dim);
+  }
+  nav a::before {
+    content: '$ cd ';
+    color: var(--text-dim);
+    opacity: 0.6;
+  }
+  nav a:hover {
+    color: var(--green);
+  }
+  nav a.current {
+    color: var(--magenta);
+  }
+  nav a.current::before {
+    content: '$ pwd: ';
+  }
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  .uplink-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.72em;
+    letter-spacing: 0.03em;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .uplink-status .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  @media (max-width: 640px) {
+    .chrome-title {
+      display: none;
+    }
+    .navbar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .navbar-actions {
+      justify-content: space-between;
+    }
   }
 </style>

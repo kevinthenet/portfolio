@@ -63,8 +63,18 @@ const stateIcons = {
 
 <style>
   a {
-    padding: 1em;
-    line-height: 5;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4em 0.6em;
+    font-size: 0.75em;
     font-weight: bold;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  a:hover {
+    color: var(--text);
+    border-color: var(--green);
   }
 </style>

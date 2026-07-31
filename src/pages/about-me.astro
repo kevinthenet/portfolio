@@ -7,8 +7,10 @@ import BaseLayout from '../layouts/Base.astro';
   description="How Kevin Castro approaches building secure, AI-powered systems in high-stakes, regulated domains."
 >
   <main>
-    <h1>About Me</h1>
-    <article class="text-content">
+    <h1>// about</h1>
+    <article class="text-content bracket-frame">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
       <p>
         I'm a senior software engineer who builds and hardens AI-powered
         systems in high-stakes, regulated domains. My deepest experience is
@@ -45,3 +47,13 @@ import BaseLayout from '../layouts/Base.astro';
     </article>
   </main>
 </BaseLayout>
+
+<style>
+  main {
+    width: var(--reader-width);
+  }
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 0.75em;
+  }
+</style>

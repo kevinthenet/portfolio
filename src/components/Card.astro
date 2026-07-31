@@ -27,7 +27,11 @@ const { isClickable, title, subtitle, annotation, body, href, image } = Astro.pr
 <li class=`link-card ${isClickable ? 'clickable' : 'nonclickable'}`>
   {
     isClickable ? (
-      <a href={href} class="card">
+      <a href={href} class="card bracket-frame">
+        <span class="corner tl" />
+        <span class="corner tr" />
+        <span class="corner bl" />
+        <span class="corner br" />
         <h2>
           {title}
           <span>&rarr;</span>
@@ -35,7 +39,12 @@ const { isClickable, title, subtitle, annotation, body, href, image } = Astro.pr
         <p>{body}</p>
       </a>
     ) : (
-      <div class="card">
+      <div class="card decrypt-panel bracket-frame">
+        <span class="corner tl" />
+        <span class="corner tr" />
+        <span class="corner bl" />
+        <span class="corner br" />
+        <p class="decrypt-head">[ DECRYPTED ]</p>
         <div class="header">
           <div class="badge">
             <img src={image.url} alt={image.alt} loading="lazy" />
@@ -43,7 +52,7 @@ const { isClickable, title, subtitle, annotation, body, href, image } = Astro.pr
           <div class="details">
             <h2>{title}</h2>
             <h4>{subtitle}</h4>
-            <sub>{annotation}</sub>
+            <p class="relation">{annotation}</p>
           </div>
         </div>
         <div class="content">
@@ -58,64 +67,91 @@ const { isClickable, title, subtitle, annotation, body, href, image } = Astro.pr
   .link-card {
     display: flex;
     list-style: none;
-    padding: 0.25em;
-    background-color: white;
-    background-image: none;
-    background-size: 400%;
-    border-radius: 0.6em;
-    box-shadow: 0.25em 0.25em 0.275em -0.0625em rgba(0, 0, 0, 0.1),
-      0.25em 0.125em 0.25em -0.125em rgba(0, 0, 0, 0.1);
-    background-position: 100%;
-    transition: background-position 1s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .nonclickable {
-    background: var(--text-background);
-    flex-direction: column;
-    transition: none;
-  }
-  .link-card > a {
+  .card {
     width: 100%;
+    background: var(--bg-card);
+    color: var(--text);
+  }
+  .link-card > a.card {
     text-decoration: none;
     line-height: 1.4;
     padding: 1em 1.3em;
-    border-radius: 0.35em;
-    color: #111;
-    background-color: white;
-    opacity: 0.8;
+    transition: border-color 0.15s ease, transform 0.15s ease;
   }
   h2 {
     margin: 0;
-    font-size: 1.25em;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  h2 span {
+    color: var(--green);
   }
   p {
     margin-top: 0.5em;
     margin-bottom: 0;
-    color: #444;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    color: var(--text-dim);
   }
-  .clickable:is(:hover, :focus-within) {
-    background-position: 0;
-    background-image: var(--accent-gradient);
+  .clickable:is(:hover, :focus-within) a.card {
+    transform: translateY(-3px);
   }
   .clickable:is(:hover, :focus-within) h2 {
-    color: var(--accent);
-    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    color: var(--magenta);
+  }
+  .decrypt-panel {
+    padding: 1.75em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .decrypt-head {
+    font-size: 0.72em;
+    color: var(--magenta);
+    letter-spacing: 0.04em;
+    margin: 0;
   }
   .header {
     display: grid;
-    grid-template-columns: [first] 1fr [second] 9fr [end];
-    padding: 1em;
+    grid-template-columns: [first] auto [second] 1fr [end];
+    gap: 1em;
+    align-items: center;
   }
   .content {
-    padding: 0 1em;
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.02em;
   }
   img {
-    width: 5em;
-    border-radius: 2.5em;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    border: 2px solid var(--cyan);
+    object-fit: cover;
+  }
+  .details > h2 {
+    font-size: 1em;
   }
   .details > h4 {
     margin: 0;
+    font-weight: normal;
+    color: var(--text-dim);
+    font-size: 0.85em;
+  }
+  .relation {
+    margin: 0.4em 0 0;
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.82em;
+    color: var(--text-dim);
+    opacity: 0.85;
+  }
+  @media (max-width: 640px) {
+    .decrypt-panel {
+      padding: 1.25em 1.4em;
+    }
+    .header {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
   }
 </style>

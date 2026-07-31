@@ -13,10 +13,14 @@ const blogEntries = await getCollection('blog');
   description="Writing from Kevin Castro on secure AI systems, software craftsmanship, and engineering practice."
 >
   <main>
-    <h1>Blog</h1>
+    <h1>// blog</h1>
     {
       blogEntries.length === 0 ? (
-        <p>New posts are in the works, check back soon.</p>
+        <p class="empty-state">
+          <span class="prompt">$ ls ./posts</span>
+          <br />
+          no entries found — new posts are in the works, check back soon.
+        </p>
       ) : (
         <div class="blog-grid">
           {blogEntries.map((blogEntry) => (
@@ -35,11 +39,26 @@ const blogEntries = await getCollection('blog');
 
 <style>
   main {
-    width: var(--default-width);
+    width: var(--reader-width);
+  }
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 0.75em;
   }
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(1, 100% [col-start]);
     row-gap: 1em;
+  }
+  .empty-state {
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    color: var(--text-dim);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.25em 1.5em;
+  }
+  .prompt {
+    font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    color: var(--green);
   }
 </style>

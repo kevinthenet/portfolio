@@ -1,6 +1,8 @@
 ---
 name: Jubel Health
 subtitle: 50+ patients onboarded in a live clinic trial
+tag: Healthcare
+blurb: Conversational AI for personalized fertility care.
 link: https://jubelhealth.com/
 technology_used:
   [

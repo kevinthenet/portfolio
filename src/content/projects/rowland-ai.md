@@ -1,6 +1,8 @@
 ---
 name: Rowland.ai
 subtitle: Benchmarked extraction pipeline across 10,000+ lease scenarios
+tag: Energy
+blurb: Agentic document reasoning for lease extraction.
 link: https://rowland.ai
 technology_used:
   [

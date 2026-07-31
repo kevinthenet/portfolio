@@ -1,6 +1,8 @@
 ---
 name: DexCare
 subtitle: Near-native relational performance from a hybrid object store
+tag: Healthcare
+blurb: Hybrid object storage inside a relational database.
 link: https://www.dexcare.com/
 technology_used:
   ['Node.js', 'TypeScript', 'OpenAPI', 'PostgreSQL', 'Amazon RDS']
