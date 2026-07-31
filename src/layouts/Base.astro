@@ -11,7 +11,7 @@ export interface Props {
 }
 
 const DEFAULT_DESCRIPTION =
-  'Senior software engineer who builds and hardens AI-powered systems in high-stakes, regulated domains.';
+  'Senior software engineer who builds secure AI-powered systems in high-stakes, regulated domains.';
 
 const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
 ---
@@ -21,7 +21,10 @@ const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
   lang="en"
   color-mode="dark"
 >
-  <Head title={title} description={description} />
+  <Head
+    title={title}
+    description={description}
+  />
   <body>
     <Header />
     <slot />
