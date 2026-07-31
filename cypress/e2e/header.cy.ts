@@ -6,7 +6,7 @@ describe('Header', () => {
       cy.log(`Testing ${pageName} page`);
       const currentPage = cy.visit(route);
       currentPage
-        .get('header > div > nav > a[href="#"]')
+        .get('header nav a[href="#"]')
         .should('contain.text', friendlyText);
     });
   });

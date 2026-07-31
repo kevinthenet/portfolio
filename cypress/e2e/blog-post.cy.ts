@@ -1,19 +1,10 @@
-import { BLOG, TEST_BLOG_SLUG } from '../constants';
+import { BLOG } from '../constants';
 
+// No blog posts are published yet (tracked in the content backlog), so
+// there's no real slug to test a populated post page against. This only
+// covers 404 handling for the dynamic [...slug] route; expand once a
+// real post ships.
 describe('Blog post page', () => {
-  let page: Cypress.Chainable;
-  beforeEach(() => {
-    page = cy.visit(`${BLOG.route}/${TEST_BLOG_SLUG}`);
-  });
-
-  it('displays the title correctly', () => {
-    page.get('title').should('have.text', BLOG.title);
-  });
-
-  it('contains some text content on the page', () => {
-    page.get('.text-content').should('exist');
-  });
-
   it(`should 404 if trying to reach a slug that doesn't exist`, () => {
     const nonExistentPage = cy.visit(`${BLOG.route}/should-not-exist`, {
       failOnStatusCode: false,

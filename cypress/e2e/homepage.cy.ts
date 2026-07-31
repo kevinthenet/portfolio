@@ -1,6 +1,4 @@
-import * as path from 'path';
-
-import { RESUME_FILE_NAME, HOME } from '../constants';
+import { HOME } from '../constants';
 
 describe('Home page', () => {
   let page: Cypress.Chainable;
@@ -16,52 +14,43 @@ describe('Home page', () => {
     page.get('h1').should('contain.text', 'Kevin Castro');
   });
 
-  it('changes the position title every so often', () => {
-    let originalPosition: string = '';
-    page
-      .get('#position')
-      .invoke('text')
-      .then((positionText) => {
-        originalPosition = positionText;
-      });
-    // move forward 3s in time
-    cy.clock();
-    cy.tick(3000);
-    if (originalPosition !== '') {
+  context('Hero CTAs', () => {
+    it('has a working email CTA', () => {
       page
-        .get('#position')
-        .invoke('text')
-        .should('not.equal', originalPosition);
-    }
-  });
+        .get('.cta-row a')
+        .first()
+        .should('have.attr', 'href', 'mailto:hello@kevincastro.dev');
+    });
 
-  it('displays social links in the main section', () => {
-    page.get('.social-links > a').should('be.visible');
+    it('has a working LinkedIn CTA', () => {
+      page
+        .get('.cta-row a')
+        .last()
+        .should(
+          'have.attr',
+          'href',
+          'https://www.linkedin.com/in/ortsacnivek/'
+        );
+    });
   });
 
   it('hides social links in the footer', () => {
     page.get('footer > .social-links').should('not.exist');
   });
 
-  context('Resume section', () => {
-    const downloadsFolder = Cypress.config('downloadsFolder');
-
-    let link: Cypress.Chainable;
-    beforeEach(() => {
-      link = page.get('.resume > a');
+  context('Selected Work section', () => {
+    it('displays a scannable row for each selected project', () => {
+      page.get('.scan-list .scan-item').should('have.length', 3);
     });
 
-    it('displays a link for the user to download a copy', () => {
-      link.should('have.attr', 'download');
-      link.should('have.attr', 'href');
+    it('every selected-work row links to a work detail page', () => {
+      page.get('.scan-list .scan-item').each((row) => {
+        expect(row.attr('href')).to.match(/^\/work\//);
+      });
     });
 
-    it('allows for a download of the file to take place', () => {
-      link.click();
-
-      const resumeFile = path.join(downloadsFolder, RESUME_FILE_NAME);
-      cy.log(resumeFile);
-      cy.readFile(resumeFile, { timeout: 15000 }).should('exist');
+    it('links out to the full work listing', () => {
+      page.get('.all-work-link').should('have.attr', 'href', '/work');
     });
   });
 
@@ -78,14 +67,14 @@ describe('Home page', () => {
       });
     });
 
-    it('every recommendation contains a title, a subtitle, an annotation, and some text content', () => {
+    it('every recommendation contains a title, a subtitle, a relation, and some text content', () => {
       recommendations.children().each((recommendation) => {
         const title = recommendation.find('h2');
         const subtitle = recommendation.find('h4');
-        const annotation = recommendation.find('sub');
+        const relation = recommendation.find('.relation');
         const content = recommendation.find('.content');
 
-        [title, subtitle, annotation, content].forEach((el) => {
+        [title, subtitle, relation, content].forEach((el) => {
           expect(el).to.exist;
           expect(el).to.contain.text;
         });

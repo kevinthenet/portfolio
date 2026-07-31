@@ -10,7 +10,16 @@ describe('Blog page', () => {
     page.get('title').should('have.text', BLOG.title);
   });
 
-  it('contains some cards for blog posts on the page', () => {
-    page.get('.text-content').should('exist');
+  // No posts are published yet (tracked in the content backlog), so this
+  // suite covers the empty state rather than a populated blog grid.
+  context('Empty state', () => {
+    it('displays the empty-state message instead of a blog grid', () => {
+      page.get('.empty-state').should('exist');
+      page.get('.blog-grid').should('not.exist');
+    });
+
+    it('renders the prompt and status lines as separate elements', () => {
+      page.get('.empty-state p').should('have.length', 3);
+    });
   });
 });
