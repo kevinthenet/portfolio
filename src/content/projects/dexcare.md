@@ -2,6 +2,7 @@
 name: DexCare
 subtitle: Near-native relational performance from a hybrid object store
 tag: Healthcare
+date: '2023'
 blurb: Hybrid object storage inside a relational database.
 link: https://www.dexcare.com/
 technology_used:

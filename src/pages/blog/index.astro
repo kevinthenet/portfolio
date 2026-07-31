@@ -16,11 +16,14 @@ const blogEntries = await getCollection('blog');
     <h1>// blog</h1>
     {
       blogEntries.length === 0 ? (
-        <p class="empty-state">
-          <span class="prompt">$ ls ./posts</span>
-          <br />
-          no entries found — new posts are in the works, check back soon.
-        </p>
+        <div class="empty-state">
+          <p><span class="prompt">$ ls ./posts</span></p>
+          <p><span class="info">[ INFO ]</span> &nbsp; no entries found!</p>
+          <p>
+            <span class="info">[ INFO ]</span> &nbsp; new posts are in the works,
+            check back soon
+          </p>
+        </div>
       ) : (
         <div class="blog-grid">
           {blogEntries.map((blogEntry) => (
@@ -57,8 +60,17 @@ const blogEntries = await getCollection('blog');
     border: 1px solid var(--border);
     padding: 1.25em 1.5em;
   }
+  .empty-state p {
+    margin: 0 0 0.35em;
+  }
+  .empty-state p:last-child {
+    margin-bottom: 0;
+  }
   .prompt {
     font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
     color: var(--green);
+  }
+  .empty-state .info {
+    color: var(--cyan);
   }
 </style>

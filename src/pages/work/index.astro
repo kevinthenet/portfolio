@@ -6,6 +6,17 @@ import BaseLayout from '../../layouts/Base.astro';
 import ProjectScanRow from '../../components/ProjectScanRow.astro';
 
 const projects = await getCollection('projects');
+const WORK_ORDER = [
+  'rowland-ai',
+  'pvcase',
+  'dexcare',
+  'redox',
+  'jubel-health',
+  'castro-home-builders',
+];
+const orderedProjects = WORK_ORDER.map((id) =>
+  projects.find((project) => project.id === id),
+).filter((project) => project !== undefined);
 ---
 
 <BaseLayout
@@ -16,10 +27,11 @@ const projects = await getCollection('projects');
     <h1>// work</h1>
     <div class="scan-list">
       {
-        projects.map((project) => (
+        orderedProjects.map((project) => (
           <ProjectScanRow
             href={`/work/${project.id}`}
             tag={project.data.tag}
+            date={project.data.date}
             name={project.data.name}
             blurb={project.data.blurb}
             metric={project.data.subtitle}

@@ -7,27 +7,32 @@ import ProjectScanRow from '../components/ProjectScanRow.astro';
 const recommendations = await getCollection('recommendations');
 const RECOMMENDATION_ORDER = ['warren-wessels', 'amy-rich', 'izzy-young'];
 recommendations.sort(
-  (a, b) => RECOMMENDATION_ORDER.indexOf(a.id) - RECOMMENDATION_ORDER.indexOf(b.id)
+  (a, b) =>
+    RECOMMENDATION_ORDER.indexOf(a.id) - RECOMMENDATION_ORDER.indexOf(b.id),
 );
 
 const projects = await getCollection('projects');
 const SELECTED_WORK_ORDER = ['rowland-ai', 'pvcase', 'redox'];
 const selectedWork = SELECTED_WORK_ORDER.map((id) =>
-  projects.find((project) => project.id === id)
+  projects.find((project) => project.id === id),
 ).filter((project) => project !== undefined);
 ---
 
 <BaseLayout
   title="Senior Software Engineer"
-  description="Kevin Castro is a senior software engineer who builds and hardens AI-powered systems in high-stakes, regulated domains."
+  description="Kevin Castro is a senior software engineer who builds secure, data-intensive systems in high-stakes, regulated domains."
 >
   <main>
     <section class="hero bracket-frame">
       <span class="corner tl"></span><span class="corner tr"></span>
       <span class="corner bl"></span><span class="corner br"></span>
-      <p class="boot"><span class="ok">[ OK ]</span> identity verified — kevin castro</p>
       <p class="boot">
-        <span class="ok">[ OK ]</span> 7yrs exp: healthcare <span class="tag">/</span>
+        <span class="ok">[ OK ]</span> identity verified: kevin castro
+      </p>
+      <p class="boot">
+        <span class="ok">[ OK ]</span> 7yrs exp: healthcare <span class="tag"
+          >/</span
+        >
         energy <span class="tag">/</span> conversational AI
       </p>
       <p class="boot">
@@ -38,19 +43,28 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
       </p>
 
       <h1 class="headline">
-        <span class="glitch-ambient" data-text="Kevin Castro">Kevin Castro</span>
+        <span
+          class="glitch-ambient"
+          data-text="Kevin Castro"
+          >Kevin Castro</span
+        >
       </h1>
       <p class="role">Senior Software Engineer</p>
       <p class="tagline">
-        I build and harden AI-powered systems in high-stakes, regulated
-        domains, from pipeline to production.
+        I build and harden AI-powered systems in high-stakes, regulated domains,
+        from pipeline to production.
       </p>
       <div class="cta-row">
-        <a class="button" href="mailto:hello@kevincastro.dev">send_email()</a>
+        <a
+          class="button"
+          href="mailto:hello@kevincastro.dev"
+          >send_email()</a
+        >
         <a
           class="button secondary"
           href="https://www.linkedin.com/in/ortsacnivek/"
-          rel="noreferrer">ping linkedin --message</a
+          rel="noreferrer"
+          >ping linkedin --message</a
         >
       </div>
     </section>
@@ -66,6 +80,7 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
             <ProjectScanRow
               href={`/work/${project.id}`}
               tag={project.data.tag}
+              date={project.data.date}
               name={project.data.name}
               blurb={project.data.blurb}
               metric={project.data.subtitle}
@@ -73,7 +88,11 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
           ))
         }
       </div>
-      <a class="all-work-link" href="/work">$ ls -a /work →</a>
+      <a
+        class="all-work-link"
+        href="/work"
+        >$ ls -a /work →</a
+      >
     </section>
 
     <section class="witness">

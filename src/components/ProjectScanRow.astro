@@ -2,18 +2,22 @@
 export interface Props {
   href: string;
   tag: string;
+  date?: string | undefined;
   name: string;
   blurb: string;
   metric: string;
 }
 
-const { href, tag, name, blurb, metric } = Astro.props;
+const { href, tag, date, name, blurb, metric } = Astro.props;
 ---
 
 <a class="scan-item bracket-frame" href={href}>
   <span class="corner tl"></span><span class="corner tr"></span>
   <span class="corner bl"></span><span class="corner br"></span>
-  <span class="scan-tag">{tag}</span>
+  <span class="scan-tag-group">
+    <span class="scan-tag">{tag}</span>
+    {date && <span class="scan-date">{date}</span>}
+  </span>
   <span class="scan-body">
     <h3>{name}</h3>
     <span class="scan-desc-wrap">
@@ -36,8 +40,13 @@ const { href, tag, name, blurb, metric } = Astro.props;
     color: var(--text);
     border: 1px solid transparent;
   }
+  .scan-tag-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35em;
+  }
   .scan-tag {
-    justify-self: start;
     font-size: 0.68em;
     color: var(--text-dim);
     border: 1px solid var(--border);
@@ -45,6 +54,14 @@ const { href, tag, name, blurb, metric } = Astro.props;
     white-space: nowrap;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+  }
+  .scan-date {
+    font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.68em;
+    color: var(--text-dim);
+    opacity: 0.7;
+    letter-spacing: 0.03em;
+    padding: 0 0.15em;
   }
   .scan-body {
     min-width: 0;
