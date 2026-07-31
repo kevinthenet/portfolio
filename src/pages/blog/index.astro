@@ -8,7 +8,10 @@ import Card from '../../components/Card.astro';
 const blogEntries = await getCollection('blog');
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout
+  title="Blog"
+  description="Writing from Kevin Castro on secure AI systems, software craftsmanship, and engineering practice."
+>
   <main>
     <h1>Blog</h1>
     {

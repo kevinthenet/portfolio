@@ -1,5 +1,4 @@
 ---
-const { tabIndex } = Astro.props;
 const labelText = `Toggle Dark Mode`;
 const stateIcons = {
   light: '\u{263C}', // white sun with rays
@@ -7,7 +6,7 @@ const stateIcons = {
 };
 ---
 
-<a class="color-mode-toggle" aria-label={labelText} tabindex={tabIndex}>
+<a class="color-mode-toggle" aria-label={labelText}>
   {`${stateIcons['dark']} ${labelText}`}
 </a>
 

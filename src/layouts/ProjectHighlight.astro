@@ -8,7 +8,7 @@ type Props = CollectionEntry<'projects'>;
 const { data: project } = Astro.props;
 ---
 
-<BaseLayout title={project.name}>
+<BaseLayout title={project.name} description={project.subtitle}>
   <main class="project-highlight">
     <div class="brief">
       <h1>{project.name}</h1>

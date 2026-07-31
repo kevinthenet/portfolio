@@ -8,7 +8,10 @@ import Card from '../../components/Card.astro';
 const projects = await getCollection('projects');
 ---
 
-<BaseLayout title="Projects">
+<BaseLayout
+  title="Projects"
+  description="Case studies from Kevin Castro's work on secure, AI-powered, and regulated-industry systems."
+>
   <main>
     <h1>Projects</h1>
     <div class="project-grid">

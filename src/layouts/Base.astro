@@ -7,9 +7,13 @@ import '../styles/global.css';
 
 export interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const DEFAULT_DESCRIPTION =
+  'Senior software engineer who builds and hardens AI-powered systems in high-stakes, regulated domains.';
+
+const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,7 +21,7 @@ const { title } = Astro.props;
   lang="en"
   color-mode="light"
 >
-  <Head title={title} />
+  <Head title={title} description={description} />
   <body>
     <Header />
     <slot />

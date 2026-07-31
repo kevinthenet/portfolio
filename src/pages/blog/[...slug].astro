@@ -1,5 +1,6 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BlogLayout from '../../layouts/Blog.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
@@ -14,8 +15,6 @@ const entry = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<!-- Since this is a pretty straightforward content container
-  we use the built-in markdown layout linking that Astro provides:
-  https://docs.astro.build/en/core-concepts/layouts/#markdownmdx-layouts
--->
-<Content />
+<BlogLayout {...entry}>
+  <Content />
+</BlogLayout>

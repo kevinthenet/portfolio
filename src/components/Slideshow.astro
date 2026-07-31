@@ -7,7 +7,11 @@ const { photos } = Astro.props;
 
 <div class="slideshow">
   <div class="slideshow-container">
-    {photos.map(({ url, alt }) => <img src={url} alt={alt} class="slide" />)}
+    {
+      photos.map(({ url, alt }) => (
+        <img src={url} alt={alt} class="slide" loading="lazy" />
+      ))
+    }
     <!-- Empty hrefs with prevent default allow tabbing for users navigating that way -->
   </div>
   <a class="prev" href="" aria-label="Previous image">&larr;</a>

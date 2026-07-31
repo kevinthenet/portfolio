@@ -11,9 +11,12 @@ recommendations.sort(
 );
 ---
 
-<BaseLayout title="Portfolio">
+<BaseLayout
+  title="Senior Software Engineer"
+  description="Kevin Castro is a senior software engineer who builds and hardens AI-powered systems in high-stakes, regulated domains."
+>
   <main>
-    <h1>Hi there!</h1>
+    <p class="greeting">Hi there!</p>
     <h1>I'm <span class="text-gradient">Kevin Castro</span></h1>
     <h2 class="subtitle">Senior Software Engineer</h2>
     <article class="text-content">
@@ -43,6 +46,11 @@ recommendations.sort(
 <style>
   main {
     max-width: var(--default-width);
+  }
+  .greeting {
+    font-size: 3em;
+    font-weight: 800;
+    margin: 0;
   }
   .text-gradient {
     background-image: var(--accent-gradient);

@@ -38,7 +38,7 @@ const { isClickable, title, subtitle, annotation, body, href, image } = Astro.pr
       <div class="card">
         <div class="header">
           <div class="badge">
-            <img src={image.url} alt={image.alt} />
+            <img src={image.url} alt={image.alt} loading="lazy" />
           </div>
           <div class="details">
             <h2>{title}</h2>

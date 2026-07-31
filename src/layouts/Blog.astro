@@ -1,5 +1,4 @@
 ---
-import type { MarkdownLayoutProps } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 
 import BaseLayout from './Base.astro';
@@ -8,15 +7,15 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 import '../styles/blog-post.css'; // the only way I was able to use custom styling for markdown generated HTML
 
-type Props = MarkdownLayoutProps<CollectionEntry<'blog'>['data']>;
-const { frontmatter } = Astro.props;
+type Props = CollectionEntry<'blog'>;
+const { data: post } = Astro.props;
 ---
 
-<BaseLayout title={frontmatter.title}>
+<BaseLayout title={post.title} description={post.summary}>
   <section class="hero">
-    <h1>{frontmatter.title}</h1>
-    <h3>{frontmatter.summary}</h3>
-    <FormattedDate timestamp={frontmatter.publishDate} />
+    <h1>{post.title}</h1>
+    <h3>{post.summary}</h3>
+    <FormattedDate timestamp={post.publishDate} />
   </section>
   <main>
     <article class="text-content">
