@@ -16,27 +16,28 @@ const { href, tag, name, blurb, metric } = Astro.props;
   <span class="scan-tag">{tag}</span>
   <span class="scan-body">
     <h3>{name}</h3>
-    <p>{blurb}</p>
+    <span class="scan-desc-wrap">
+      <span class="scan-desc blurb">{blurb}</span>
+      <span class="scan-desc metric">{metric}</span>
+    </span>
   </span>
-  <span class="scan-result tabular">
-    <span class="scanning">scanning</span>
-    <span class="found">{metric}</span>
-  </span>
+  <span class="scan-arrow" aria-hidden="true">&rarr;</span>
 </a>
 
 <style>
   .scan-item {
+    display: grid;
+    grid-template-columns: 8.5em 1fr 1.5em;
+    gap: 1.25em;
+    align-items: center;
     padding: 1.1em 1.3em;
     background: var(--bg-card);
     text-decoration: none;
     color: var(--text);
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 1.25em;
-    align-items: center;
     border: 1px solid transparent;
   }
   .scan-tag {
+    justify-self: start;
     font-size: 0.68em;
     color: var(--text-dim);
     border: 1px solid var(--border);
@@ -45,51 +46,79 @@ const { href, tag, name, blurb, metric } = Astro.props;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
+  .scan-body {
+    min-width: 0;
+  }
   .scan-body h3 {
-    margin: 0 0 0.2em;
+    margin: 0 0 0.3em;
     font-size: 1em;
     font-weight: 700;
     text-transform: uppercase;
   }
-  .scan-body p {
-    margin: 0;
+  .scan-desc-wrap {
+    position: relative;
+    display: block;
+    min-height: 2.8em;
+  }
+  .scan-desc {
+    position: absolute;
+    inset: 0;
     font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
     font-size: 0.88em;
+    line-height: 1.4;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .scan-desc.blurb {
     color: var(--text-dim);
+    opacity: 1;
+    transform: translateY(0);
   }
-  .scan-result {
-    text-align: right;
-    font-size: 0.78em;
-    min-width: 17ch;
-  }
-  .scan-result .scanning {
-    color: var(--text-dim);
-  }
-  .scan-result .scanning::after {
-    content: '...';
-  }
-  .scan-result .found {
-    display: none;
+  .scan-desc.metric {
     color: var(--green);
-    font-weight: 700;
-    text-shadow: 0 0 8px color-mix(in srgb, var(--green) 55%, transparent);
+    opacity: 0;
+    transform: translateY(4px);
+    text-shadow: 0 0 8px color-mix(in srgb, var(--green) 45%, transparent);
   }
-  .scan-item:hover .scanning,
-  .scan-item:focus-visible .scanning {
-    display: none;
+  .scan-item:hover .scan-desc.blurb,
+  .scan-item:focus-visible .scan-desc.blurb {
+    opacity: 0;
+    transform: translateY(-4px);
   }
-  .scan-item:hover .found,
-  .scan-item:focus-visible .found {
-    display: block;
+  .scan-item:hover .scan-desc.metric,
+  .scan-item:focus-visible .scan-desc.metric {
+    opacity: 1;
+    transform: translateY(0);
+    animation: text-glitch 0.3s steps(3);
+  }
+  @keyframes text-glitch {
+    0% {
+      text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan);
+    }
+    40% {
+      text-shadow: 2px 0 var(--magenta), -2px 0 var(--cyan);
+    }
+    100% {
+      text-shadow: 0 0 8px color-mix(in srgb, var(--green) 45%, transparent);
+    }
+  }
+  .scan-arrow {
+    justify-self: end;
+    color: var(--text-dim);
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .scan-item:hover .scan-arrow,
+  .scan-item:focus-visible .scan-arrow {
+    color: var(--magenta);
+    transform: translateX(3px);
   }
 
   @media (max-width: 760px) {
     .scan-item {
       grid-template-columns: 1fr;
-      text-align: left;
+      gap: 0.6em;
     }
-    .scan-result {
-      text-align: left;
+    .scan-arrow {
+      display: none;
     }
   }
 </style>
