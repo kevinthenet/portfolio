@@ -11,18 +11,22 @@ const blogEntries = await getCollection('blog');
 <BaseLayout title="Blog">
   <main>
     <h1>Blog</h1>
-    <div class="blog-grid">
-      {
-        blogEntries.map((blogEntry) => (
-          <Card
-            isClickable={true}
-            title={blogEntry.data.title}
-            href={`/blog/${blogEntry.id}`}
-            body={blogEntry.data.summary}
-          />
-        ))
-      }
-    </div>
+    {
+      blogEntries.length === 0 ? (
+        <p>New posts are in the works, check back soon.</p>
+      ) : (
+        <div class="blog-grid">
+          {blogEntries.map((blogEntry) => (
+            <Card
+              isClickable={true}
+              title={blogEntry.data.title}
+              href={`/blog/${blogEntry.id}`}
+              body={blogEntry.data.summary}
+            />
+          ))}
+        </div>
+      )
+    }
   </main>
 </BaseLayout>
 

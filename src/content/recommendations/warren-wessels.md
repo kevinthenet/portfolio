@@ -1,7 +1,7 @@
 ---
 name: Warren Wessels
 title: Principal Engineer, Architect at Redox
-relation: Senior to Kevin, but did not manage Kevin directly
+relation: Worked closely with Kevin on Redox's platform engineering team
 profileImage:
   url: /warren-wessels-profile-picture.jpeg
   alt: Warren Wessels profile picture

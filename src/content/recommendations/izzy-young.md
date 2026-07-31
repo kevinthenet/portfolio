@@ -1,7 +1,7 @@
 ---
 name: Izzy Young
 title: Software Engineer at Turo
-relation: Kevin was senior to Izzy but didn't manage Izzy directly
+relation: Kevin mentored Izzy as a teaching assistant at UCSD's coding bootcamp
 profileImage:
   url: /izzy-young-profile-picture.jpeg
   alt: Izzy Young profile picture

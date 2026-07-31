@@ -13,8 +13,11 @@ const { data: project } = Astro.props;
     <div class="brief">
       <h1>{project.name}</h1>
       <h3>{project.subtitle}</h3>
-      <a href={project.link} class="project-link project-page"
-        >Project Page &rarr;</a
+      <a
+        href={project.link}
+        class="project-link project-page"
+        target="_blank"
+        rel="noreferrer">Project Page &rarr;</a
       >
       <article class="text-content">
         <slot />

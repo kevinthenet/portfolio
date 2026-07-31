@@ -1,7 +1,7 @@
 ---
 name: Amy Rich
 title: Professional Life and Leadership Coach at Oceanwave Coaching
-relation: Amy worked with Kevin but on different teams
+relation: Worked with Kevin at Redox
 profileImage:
   url: /amy-rich-profile-picture.jpeg
   alt: Amy Rich profile picture

@@ -1,6 +1,6 @@
 ---
 name: Redox
-subtitle: Built for the future of healthcare
+subtitle: Millions of PHI records/day at 99.999% uptime
 link: https://www.redoxengine.com/
 technology_used:
   [
@@ -35,4 +35,4 @@ photos:
   ]
 ---
 
-Redox is the single API for connecting to products, providers, and payers. It unlocks data that is typically facilitated by event-driven interfaces in the specific domain language (HL7v2, CDA, X12) by offering a normalized JSON output that non-integration experts can access. This enables builders of healthcare integrations to move more quickly. It's an industry leader in its offering and its mission is to unite patients and providers by making healthcare data more accessible, while maintaining a high standard for security and integrity.
+At Redox I built the systems that let health systems and software vendors exchange PHI data securely at scale, including transaction processing that handled millions of healthcare records daily at 99.999% uptime SLAs. I designed and implemented single sign-on authentication and multi-region infrastructure that unlocked new healthcare partnerships, and overhauled observability and error-tracking on the customer-facing dashboard so support and engineering could diagnose connection issues faster. I carried the primary on-call rotation for this infrastructure.

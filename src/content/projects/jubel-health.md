@@ -1,6 +1,6 @@
 ---
 name: Jubel Health
-subtitle: Your virtual, personal fertility guide
+subtitle: 50+ patients onboarded in a live clinic trial
 link: https://jubelhealth.com/
 technology_used:
   [
@@ -41,6 +41,6 @@ photos:
   ]
 ---
 
-Jubel Health is a product aimed at solving one of the most pressing issues that patients encounter when undergoing their personal fertility journey: access to information. Whether it's asking if fertility treatment is right for the user, or a specific question about their specific fertility treatment, Jubel Health answers users' questions with personalized, medically-vetted information 24/7.
+Jubel Health set out to solve a specific access problem in fertility care: patients need medically-vetted answers at 2am, not just during clinic hours. I architected the backend end-to-end, including the conversational AI pipeline, CI/CD, and the RESTful API powering both a React PWA and an iPhone app, taking the product from zero to a live trial with a partner clinic and reaching 50+ patients within a year of project start.
 
-Jubel Health also allows users to access the greater fertility health community; a community of peers and experts to support each other in the treatment of fertility issues. The application enables discussion by allowing users to book fireside chats to learn from fertility experts directly.
+The application also connects patients to the broader fertility health community, letting them book direct conversations with fertility experts through the same infrastructure.
