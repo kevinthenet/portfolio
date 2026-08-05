@@ -22,24 +22,22 @@ type NonClickable = {
 
 export type Props = Clickable | NonClickable;
 
-// @ts-ignore ts(2339) - ignoring due to type guards being used in the component
-// but the props are expecting a static interface
-const { isClickable, title, subtitle, annotation, body, href, image } = Astro.props;
+const props = Astro.props;
 ---
 
-<li class=`link-card ${isClickable ? 'clickable' : 'nonclickable'}`>
+<li class=`link-card ${props.isClickable ? 'clickable' : 'nonclickable'}`>
   {
-    isClickable ? (
-      <a href={href} class="card bracket-frame">
+    props.isClickable ? (
+      <a href={props.href} class="card bracket-frame">
         <span class="corner tl" />
         <span class="corner tr" />
         <span class="corner bl" />
         <span class="corner br" />
         <h2>
-          {title}
+          {props.title}
           <span>&rarr;</span>
         </h2>
-        <p>{body}</p>
+        <p>{props.body}</p>
       </a>
     ) : (
       <div class="card decrypt-panel bracket-frame">
@@ -51,17 +49,17 @@ const { isClickable, title, subtitle, annotation, body, href, image } = Astro.pr
         <div class="header">
           <div class="badge">
             <Image
-              src={image.image}
-              alt={image.alt}
+              src={props.image.image}
+              alt={props.image.alt}
               width={112}
               height={112}
               loading="lazy"
             />
           </div>
           <div class="details">
-            <h2>{title}</h2>
-            <h4>{subtitle}</h4>
-            <p class="relation">{annotation}</p>
+            <h2>{props.title}</h2>
+            <h4>{props.subtitle}</h4>
+            <p class="relation">{props.annotation}</p>
           </div>
         </div>
         <div class="content">
