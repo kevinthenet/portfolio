@@ -8,12 +8,17 @@ import '../styles/global.css';
 export interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
 const DEFAULT_DESCRIPTION =
   'Senior software engineer who builds secure, AI-powered, & data-intensive systems in high-stakes, regulated domains.';
 
-const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
+const {
+  title,
+  description = DEFAULT_DESCRIPTION,
+  image = '/og-image.png',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +29,7 @@ const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
   <Head
     title={title}
     description={description}
+    image={image}
   />
   <body>
     <Header />

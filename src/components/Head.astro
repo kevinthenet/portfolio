@@ -2,12 +2,13 @@
 export interface Props {
   title: string;
   description: string;
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image = '/og-image.png' } = Astro.props;
 const pageTitle = `Kevin Castro // ${title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL('/og-image.png', Astro.site);
+const socialImageURL = new URL(image, Astro.site);
 ---
 
 <head>

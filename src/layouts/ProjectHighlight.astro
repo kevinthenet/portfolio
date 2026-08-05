@@ -5,10 +5,14 @@ import Slideshow from '../components/Slideshow.astro';
 
 type Props = CollectionEntry<'projects'>;
 
-const { data: project } = Astro.props;
+const { id, data: project } = Astro.props;
 ---
 
-<BaseLayout title={project.name} description={project.subtitle}>
+<BaseLayout
+  title={project.name}
+  description={project.subtitle}
+  image={`/og/${id}.png`}
+>
   <main class="project-highlight">
     <div class="brief bracket-frame">
       <span class="corner tl"></span><span class="corner tr"></span>

@@ -49,10 +49,17 @@ mandatory`), so swipe/trackpad/arrow-key navigation work for free via
   tooling was available to re-encode them as video, and they were the
   only motion demos on the site against five other projects that rely on
   static screenshots alone. The two static desktop/mobile shots stay.
+- ~~Every project page shared the one site-wide `og-image.png`~~ —
+  generated a per-project 1200x630 card for all six projects
+  (`public/og/<slug>.png`) in the same "Uplink // Terminal" template,
+  swapping in each project's real name/tag/date/subtitle/blurb (headline
+  size scales down for longer names so nothing clips or overflows).
+  Threaded an optional `image` prop through `Head.astro` → `Base.astro`
+  → `ProjectHighlightLayout` (which now also grabs the collection entry's
+  `id` to resolve `/og/${id}.png`); every other page keeps falling back
+  to the site-wide default. No iframe-embed strategy was pursued — a
+  static per-project image covers the actual link-preview use case.
 
 ## Still open
 
-- **Link-preview / share imagery for project pages.** Every project now
-  has sourced `photos`, but there's still no per-project OG/social image
-  or iframe embed strategy — every page currently shares the one
-  site-wide `og-image.png` rather than a per-project card.
+Nothing outstanding from this pass. Next design work starts fresh.
