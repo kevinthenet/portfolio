@@ -26,17 +26,21 @@ mandatory`), so swipe/trackpad/arrow-key navigation work for free via
   stale Redox landing screenshot and added two new Redox product shots,
   and reorganized `public/` into one subfolder per project
   (`public/<project>/...`) with real alt text on every image.
+- ~~Site-wide OG/Twitter social-card image was a placeholder~~ —
+  `Head.astro` pointed `og:image`/`twitter:image` at
+  `android-chrome-512x512.png` (the app icon). Designed a 1200x630 card
+  in the "Uplink // Terminal" system (`public/og-image.png`): bracket
+  corners, boot-log lines, the glitch headline treatment toned down to a
+  legible static sliver, JetBrains Mono throughout. Also fixed
+  `twitter:card` from `summary` to `summary_large_image` (it was
+  mismatched with a 1200x630 image) and added `og:image:width/height/type`.
 
 ## Still open
 
 - **Link-preview / share imagery for project pages.** Every project now
   has sourced `photos`, but there's still no per-project OG/social image
-  or iframe embed strategy — needs a mechanism to generate/select a
-  share card from the existing screenshots.
-- **Site-wide OG/Twitter social-card image is a placeholder** —
-  `Head.astro` points `og:image`/`twitter:image` at
-  `android-chrome-512x512.png` (the app icon). Needs a real 1200x630 card
-  designed in the new visual system.
+  or iframe embed strategy — every page currently shares the one
+  site-wide `og-image.png` rather than a per-project card.
 - **`chb-navigation.gif` (26MB) still needs re-encoding/compression** (or
   converting to `<video>`/webp) — no compression tooling (ffmpeg/gifsicle)
   was available in this environment to do it inline. Still a severe Core

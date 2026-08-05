@@ -7,7 +7,7 @@ export interface Props {
 const { title, description } = Astro.props;
 const pageTitle = `Kevin Castro // ${title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL('/android-chrome-512x512.png', Astro.site);
+const socialImageURL = new URL('/og-image.png', Astro.site);
 ---
 
 <head>
@@ -27,8 +27,11 @@ const socialImageURL = new URL('/android-chrome-512x512.png', Astro.site);
   <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={socialImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
 
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content={canonicalURL} />
   <meta name="twitter:title" content={pageTitle} />
   <meta name="twitter:description" content={description} />
