@@ -31,19 +31,19 @@ skills:
 photos:
   [
     {
-      url: '/pvcase/pvcase-landing-page.png',
+      image: '../../assets/projects/pvcase/pvcase-landing-page.png',
       alt: 'PVcase website landing page hero section',
     },
     {
-      url: '/pvcase/pvcase-prospect-site-map.png',
+      image: '../../assets/projects/pvcase/pvcase-prospect-site-map.png',
       alt: 'PVcase Prospect screenshot of a terrain and parcel map showing highlighted buildable land plots over satellite imagery',
     },
     {
-      url: '/pvcase/pvcase-product-parcel-view.png',
+      image: '../../assets/projects/pvcase/pvcase-product-parcel-view.png',
       alt: 'PVcase Prospect screenshot of a live project map with pinned parcel locations alongside a projects and parcels table',
     },
     {
-      url: '/pvcase/pvcase-product-capacity-dashboard.png',
+      image: '../../assets/projects/pvcase/pvcase-product-capacity-dashboard.png',
       alt: 'PVcase Prospect screenshot of a substation capacity panel showing headroom and discharging capacity data for a selected substation',
     },
   ]

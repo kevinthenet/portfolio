@@ -40,15 +40,15 @@ skills:
 photos:
   [
     {
-      url: '/rowland-ai/rowland-landing-page.png',
+      image: '../../assets/projects/rowland-ai/rowland-landing-page.png',
       alt: 'Rowland.ai website landing page with header text: "Workflows API for Automated Operations"',
     },
     {
-      url: '/rowland-ai/rowland-workflow-builder.png',
+      image: '../../assets/projects/rowland-ai/rowland-workflow-builder.png',
       alt: 'Rowland.ai Workflow Builder card showing a visual pipeline of document analysis, AI processing, and conditional logic steps',
     },
     {
-      url: '/rowland-ai/rowland-document-extraction.png',
+      image: '../../assets/projects/rowland-ai/rowland-document-extraction.png',
       alt: 'Rowland.ai Documents API screenshot showing extracted data results including key clauses, parties, and dates',
     },
   ]

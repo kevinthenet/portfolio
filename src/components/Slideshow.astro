@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
-  photos: { url: string; alt: string }[];
+  photos: { image: ImageMetadata; alt: string }[];
 }
 const { photos } = Astro.props;
 ---
@@ -14,8 +17,15 @@ const { photos } = Astro.props;
     aria-label="Project screenshots"
   >
     {
-      photos.map(({ url, alt }) => (
-        <img src={url} alt={alt} class="slide" loading="lazy" />
+      photos.map(({ image, alt }) => (
+        <Image
+          src={image}
+          alt={alt}
+          class="slide"
+          loading="lazy"
+          widths={[480, 800, 1200]}
+          sizes="(max-width: 800px) 100vw, 45vw"
+        />
       ))
     }
   </div>
@@ -23,7 +33,7 @@ const { photos } = Astro.props;
   <a class="prev" href="" aria-label="Previous image">&larr;</a>
   <a class="next" href="" aria-label="Next image">&rarr;</a>
   <div class="breadcrumbs">
-    {photos.map((photo) => <span class="breadcrumb" id={photo.url}>&#x25A1;</span>)}
+    {photos.map((_, index) => <span class="breadcrumb" id={`slide-${index}`}>&#x25A1;</span>)}
   </div>
 </div>
 

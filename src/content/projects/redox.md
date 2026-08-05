@@ -21,27 +21,27 @@ photos:
   [
     {
       alt: 'Redox website landing page with text: "Your foundation for AI-ready healthcare data"',
-      url: '/redox/redox-landing-page.png',
+      image: '../../assets/projects/redox/redox-landing-page.png',
     },
     {
       alt: 'Venn Diagram of 3 entities: Patients, Providers, and Technology with "Better Healthcare" at the center',
-      url: '/redox/redox-audience.png',
+      image: '../../assets/projects/redox/redox-audience.png',
     },
     {
       alt: 'Redox dashboard screenshot of log search page',
-      url: '/redox/redox-log-search.png',
+      image: '../../assets/projects/redox/redox-log-search.png',
     },
     {
       alt: 'Redox dashboard screenshot of SSO setup page',
-      url: '/redox/redox-sso-setup.png',
+      image: '../../assets/projects/redox/redox-sso-setup.png',
     },
     {
       alt: 'Redox platform overview diagram showing an EHR payload flowing through data normalization and IMO Health operations into an AI Tool',
-      url: '/redox/redox-product-data-flow-diagram.png',
+      image: '../../assets/projects/redox/redox-product-data-flow-diagram.png',
     },
     {
       alt: 'Redox Explore page showing a live map of the healthcare data connection network across the United States',
-      url: '/redox/redox-product-network-map.png',
+      image: '../../assets/projects/redox/redox-product-network-map.png',
     },
   ]
 ---

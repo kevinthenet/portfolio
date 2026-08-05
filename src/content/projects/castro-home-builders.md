@@ -9,20 +9,12 @@ skills: ['Website Development', 'CI/CD']
 photos:
   [
     {
-      url: '/castro-home-builders/chb-navigation.gif',
-      alt: 'GIF of a user scrolling through Castro Home Builders home page and navigating to contact page',
-    },
-    {
-      url: '/castro-home-builders/chb-home-page-desktop.png',
+      image: '../../assets/projects/castro-home-builders/chb-home-page-desktop.png',
       alt: 'Castro Home Builders home page on desktop',
     },
     {
-      url: '/castro-home-builders/chb-home-page-mobile.png',
+      image: '../../assets/projects/castro-home-builders/chb-home-page-mobile.png',
       alt: 'Castro Home Builders home page on mobile',
-    },
-    {
-      url: '/castro-home-builders/chb-contact-page-submission.gif',
-      alt: 'GIF of a user submitting a Castro Home Builders Contact page submission, animated',
     },
   ]
 ---

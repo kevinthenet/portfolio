@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 type Clickable = {
   isClickable: true;
   title: string;
@@ -12,7 +15,7 @@ type NonClickable = {
   subtitle: string;
   annotation: string;
   image: {
-    url: string;
+    image: ImageMetadata;
     alt: string;
   };
 };
@@ -47,7 +50,13 @@ const { isClickable, title, subtitle, annotation, body, href, image } = Astro.pr
         <p class="decrypt-head">[ DECRYPTED ]</p>
         <div class="header">
           <div class="badge">
-            <img src={image.url} alt={image.alt} loading="lazy" />
+            <Image
+              src={image.image}
+              alt={image.alt}
+              width={112}
+              height={112}
+              loading="lazy"
+            />
           </div>
           <div class="details">
             <h2>{title}</h2>

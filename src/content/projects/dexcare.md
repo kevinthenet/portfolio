@@ -11,15 +11,15 @@ skills: ['Database Design', 'API Development']
 photos:
   [
     {
-      url: '/dexcare/dexcare-landing-page.png',
+      image: '../../assets/projects/dexcare/dexcare-landing-page.png',
       alt: 'DexCare website landing page with header text: "The control center for patient access"',
     },
     {
-      url: '/dexcare/dexcare-product-search-schedule.png',
+      image: '../../assets/projects/dexcare/dexcare-product-search-schedule.png',
       alt: 'DexCare Search & Schedule product page hero showing a patient search and appointment time-selection mockup',
     },
     {
-      url: '/dexcare/dexcare-product-pathway-diagram.png',
+      image: '../../assets/projects/dexcare/dexcare-product-pathway-diagram.png',
       alt: 'DexCare "One Doorway" diagram showing homepage, services, providers, articles, locations, and conditions pages all connecting to a single "Care, confirmed" booking flow',
     },
   ]

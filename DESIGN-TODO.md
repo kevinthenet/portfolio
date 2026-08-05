@@ -34,6 +34,21 @@ mandatory`), so swipe/trackpad/arrow-key navigation work for free via
   legible static sliver, JetBrains Mono throughout. Also fixed
   `twitter:card` from `summary` to `summary_large_image` (it was
   mismatched with a 1200x630 image) and added `og:image:width/height/type`.
+- ~~`<img>` tags weren't running through Astro's `<Image />`~~ — moved
+  every project/recommendation photo from `public/` into `src/assets/`,
+  switched the `photos`/`profileImage` content-collection schemas to the
+  `image()` helper, and rewired `Slideshow.astro` and `Card.astro` onto
+  `<Image />` with `widths`/`sizes` for a responsive srcset. Sharp wasn't
+  actually installed (only present transitively in the lockfile), so
+  builds silently had no optimized-image service; added it as an explicit
+  devDependency. Output is now real: e.g. `chb-home-page-desktop.png`
+  went from a 2.99MB PNG to a 112KB webp variant at the rendered width.
+  Removed `chb-navigation.gif` and `chb-contact-page-submission.gif`
+  entirely rather than migrating them — animated GIFs can't survive
+  Sharp's optimizer (it'd flatten them to one frame), no compression
+  tooling was available to re-encode them as video, and they were the
+  only motion demos on the site against five other projects that rely on
+  static screenshots alone. The two static desktop/mobile shots stay.
 
 ## Still open
 
@@ -41,10 +56,3 @@ mandatory`), so swipe/trackpad/arrow-key navigation work for free via
   has sourced `photos`, but there's still no per-project OG/social image
   or iframe embed strategy — every page currently shares the one
   site-wide `og-image.png` rather than a per-project card.
-- **`chb-navigation.gif` (26MB) still needs re-encoding/compression** (or
-  converting to `<video>`/webp) — no compression tooling (ffmpeg/gifsicle)
-  was available in this environment to do it inline. Still a severe Core
-  Web Vitals hit on the Castro Home Builders project page.
-- **Migrate `<img>` tags to Astro's `<Image />`/`<Picture />`**
-  (astro:assets) across `Slideshow.astro`, `Card.astro`, and
-  recommendation photos for automatic resizing and AVIF/WebP output.

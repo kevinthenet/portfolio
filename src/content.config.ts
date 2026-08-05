@@ -2,45 +2,43 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
-const imageSchema = z.object({
-  url: z.string(),
-  alt: z.string(),
-});
-
 const blogCollection = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
-  schema: z.object({
-    title: z.string(),
-    summary: z.string(),
-    publishDate: z.date(),
-    heroImage: imageSchema.optional(),
-    tags: z.array(z.string()),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      summary: z.string(),
+      publishDate: z.date(),
+      heroImage: z.object({ image: image(), alt: z.string() }).optional(),
+      tags: z.array(z.string()),
+    }),
 });
 
 const projectCollection = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
-  schema: z.object({
-    name: z.string(),
-    subtitle: z.string(),
-    tag: z.string(),
-    date: z.string().optional(),
-    blurb: z.string(),
-    link: z.string(),
-    technology_used: z.array(z.string()),
-    skills: z.array(z.string()),
-    photos: z.array(imageSchema).optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      subtitle: z.string(),
+      tag: z.string(),
+      date: z.string().optional(),
+      blurb: z.string(),
+      link: z.string(),
+      technology_used: z.array(z.string()),
+      skills: z.array(z.string()),
+      photos: z.array(z.object({ image: image(), alt: z.string() })).optional(),
+    }),
 });
 
 const recommendationCollection = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/recommendations' }),
-  schema: z.object({
-    name: z.string(),
-    title: z.string(),
-    relation: z.string(),
-    profileImage: imageSchema,
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      title: z.string(),
+      relation: z.string(),
+      profileImage: z.object({ image: image(), alt: z.string() }),
+    }),
 });
 
 export const collections = {
