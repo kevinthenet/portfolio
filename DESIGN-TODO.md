@@ -15,17 +15,24 @@ pill chips are all in place with light/dark themes and responsive layout.
   replaced with wrapping pill chips (`ProjectHighlight.astro`).
 - ~~Project detail layout is a rigid 2-column grid~~ — now stacks on
   mobile (`.project-highlight` media query).
+- ~~Slideshow interaction is still click-driven prev/next~~ — rebuilt
+  `Slideshow.astro` on native CSS scroll-snap (`scroll-snap-type: x
+mandatory`), so swipe/trackpad/arrow-key navigation work for free via
+  the browser's own scroll handling. Prev/next buttons and breadcrumbs
+  now call `scrollIntoView`, and an `IntersectionObserver` keeps the
+  active breadcrumb in sync as the user scrolls or swipes.
+- ~~Rowland.ai, PVcase, and DexCare had no `photos` at all~~ — sourced
+  and cropped hero/product screenshots for all three, refreshed the
+  stale Redox landing screenshot and added two new Redox product shots,
+  and reorganized `public/` into one subfolder per project
+  (`public/<project>/...`) with real alt text on every image.
 
 ## Still open
 
-- **Slideshow interaction is still click-driven prev/next.** Pills fixed
-  the tag-list clunkiness, but `Slideshow.astro` itself doesn't support
-  swipe or arrow-key navigation yet — still worth a pass if the photo
-  count per project grows.
-- **Link-preview / share imagery for project pages.** No per-project
-  OG/social image or iframe embed strategy yet. Rowland.ai, PVcase, and
-  DexCare still have no `photos` at all — needs sourcing before this can
-  be wired up.
+- **Link-preview / share imagery for project pages.** Every project now
+  has sourced `photos`, but there's still no per-project OG/social image
+  or iframe embed strategy — needs a mechanism to generate/select a
+  share card from the existing screenshots.
 - **Site-wide OG/Twitter social-card image is a placeholder** —
   `Head.astro` points `og:image`/`twitter:image` at
   `android-chrome-512x512.png` (the app icon). Needs a real 1200x630 card

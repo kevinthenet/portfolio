@@ -30,15 +30,15 @@ skills:
 photos:
   [
     {
-      url: '/Jubel-Health-landing-page.png',
+      url: '/jubel-health/Jubel-Health-landing-page.png',
       alt: 'Jubel Health Website Landing page with header text: "Jubel Health, your virtual, personal fertility guide"',
     },
     {
-      url: '/Jubel-Health-how-jubel-works.png',
+      url: '/jubel-health/Jubel-Health-how-jubel-works.png',
       alt: 'Jubel Health Website How-to describing the questions you can ask the conversational assistant',
     },
     {
-      url: '/Jubel-Health-call-to-action.png',
+      url: '/jubel-health/Jubel-Health-call-to-action.png',
       alt: 'Jubel Health Website Call to Action with instructions on how to install the Jubel Health app',
     },
   ]

@@ -37,6 +37,21 @@ skills:
     'JavaScript',
     'Python',
   ]
+photos:
+  [
+    {
+      url: '/rowland-ai/rowland-landing-page.png',
+      alt: 'Rowland.ai website landing page with header text: "Workflows API for Automated Operations"',
+    },
+    {
+      url: '/rowland-ai/rowland-workflow-builder.png',
+      alt: 'Rowland.ai Workflow Builder card showing a visual pipeline of document analysis, AI processing, and conditional logic steps',
+    },
+    {
+      url: '/rowland-ai/rowland-document-extraction.png',
+      alt: 'Rowland.ai Documents API screenshot showing extracted data results including key clauses, parties, and dates',
+    },
+  ]
 ---
 
 Lead developer on an AI-powered document extraction platform for the energy sector, owning the server-side systems, data pipelines, cloud infrastructure, and API layer the platform runs on. I architected the LLM pipelines, RAG infrastructure, and tool-calling systems behind autonomous, multi-step document reasoning using Gemini's long-context models, and built the Golden Corpus validation framework: automated recursive testing with divergence alerting that continuously checks extraction output against verified benchmarks.
