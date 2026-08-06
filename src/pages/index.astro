@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/Base.astro';
 import Recommendation from '../components/Recommendation.astro';
 import ProjectScanRow from '../components/ProjectScanRow.astro';
+import { getYearsOfExperience } from '../utils/experience.js';
+
+const yearsOfExperience = getYearsOfExperience();
 
 const recommendations = await getCollection('recommendations');
 const RECOMMENDATION_ORDER = ['warren-wessels', 'amy-rich', 'izzy-young'];
@@ -27,19 +30,18 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
       <span class="corner tl"></span><span class="corner tr"></span>
       <span class="corner bl"></span><span class="corner br"></span>
       <p class="boot">
-        <span class="ok">[ OK ]</span> identity verified: kevin castro
+        <span class="info">[ INFO ]</span> identity: kevin castro
       </p>
       <p class="boot">
-        <span class="ok">[ OK ]</span> 7yrs exp: healthcare <span class="tag"
-          >/</span
-        >
-        energy <span class="tag">/</span> conversational AI
+        <span class="info">[ INFO ]</span>
+        &nbsp;{yearsOfExperience} yrs experience: healthcare | energy | conversational
+        AI
       </p>
       <p class="boot">
-        <span class="ok">[ OK ]</span> clearance: PHI / HIPAA-grade systems verified
+        <span class="info">[ INFO ]</span> clearance: HIPPA | SOC2 | ISO 27001
       </p>
       <p class="boot">
-        <span class="ok">[ OK ]</span> all systems nominal
+        <span class="info">[ INFO ]</span> all systems nominal
       </p>
 
       <h1 class="headline">
@@ -149,7 +151,7 @@ const selectedWork = SELECTED_WORK_ORDER.map((id) =>
       opacity: 1;
     }
   }
-  .boot .ok {
+  .boot .info {
     color: var(--green);
   }
   .boot .tag {

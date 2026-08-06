@@ -19,10 +19,15 @@ import {
   rmSync,
 } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '../..');
+// Plain .js shared with src/pages/index.astro so "N years" never drifts
+// out of sync between the live site and this periodically-regenerated card.
+const { getYearsOfExperience } = await import(
+  pathToFileURL(path.join(REPO_ROOT, 'src/utils/experience.js')).href
+);
 const PUBLIC_DIR = path.join(REPO_ROOT, 'public');
 const TEMPLATE = readFileSync(path.join(__dirname, 'template.html'), 'utf-8');
 
@@ -65,8 +70,8 @@ function buildCards() {
   cards.push({
     id: 'site-wide',
     outputPath: path.join(PUBLIC_DIR, 'og-image.png'),
-    boot1: 'identity verified: kevin castro',
-    boot2: '7yrs exp: healthcare / energy / conversational AI',
+    boot1: 'identity: kevin castro',
+    boot2: `${getYearsOfExperience()} yrs exp: healthcare | energy | conversational AI`,
     headline: 'Kevin Castro',
     metric: 'Senior Software Engineer',
     tagline:
@@ -82,7 +87,7 @@ function buildCards() {
     cards.push({
       id: `project:${id}`,
       outputPath: path.join(PUBLIC_DIR, 'og', `${id}.png`),
-      boot1: `project verified: ${data.name}`,
+      boot1: `project : ${data.name}`,
       boot2,
       headline: data.name,
       metric: data.subtitle,
@@ -100,7 +105,7 @@ function buildCards() {
     cards.push({
       id: `blog:${id}`,
       outputPath: path.join(PUBLIC_DIR, 'og', 'blog', `${id}.png`),
-      boot1: `post verified: ${data.title}`,
+      boot1: `post : ${data.title}`,
       boot2: boot2 || 'blog',
       headline: data.title,
       // Blog frontmatter only has one descriptive field (summary), unlike

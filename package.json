@@ -19,7 +19,8 @@
     "lint:check": "pnpm exec prettier --check . --config .prettierrc.json",
     "lint:fix": "pnpm exec prettier --write . --config .prettierrc.json",
     "pretty-quick": "pretty-quick",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cards:regenerate": "node tools/og-cards/generate.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

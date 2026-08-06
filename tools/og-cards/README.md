@@ -69,7 +69,7 @@ will remind you otherwise.
 
 **Projects** (`src/content/projects/*.md` frontmatter):
 
-- Boot line 1: `project verified: <name>`
+- Boot line 1: `project: <name>`
 - Boot line 2: `<tag> / <date>` (or just `<tag>` if no `date`)
 - Headline: `name`
 - Metric (green line): `subtitle`
@@ -78,7 +78,7 @@ will remind you otherwise.
 
 **Blog posts** (`src/content/blog/*.md` frontmatter):
 
-- Boot line 1: `post verified: <title>`
+- Boot line 1: `post: <title>`
 - Boot line 2: `<first tag> / <publish year>`
 - Headline: `title`
 - Metric (green line): up to 3 `tags`, joined with `·` — blog frontmatter
