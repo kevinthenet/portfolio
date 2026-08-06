@@ -16,6 +16,18 @@ photos:
       image: '../../assets/projects/castro-home-builders/chb-home-page-mobile.png',
       alt: 'Castro Home Builders home page on mobile',
     },
+    {
+      image: '../../assets/projects/castro-home-builders/chb-services.png',
+      alt: 'Castro Home Builders services accordion listing structural, carpentry, interior, remodeling, and exterior work',
+    },
+    {
+      image: '../../assets/projects/castro-home-builders/chb-testimonials.png',
+      alt: 'Castro Home Builders customer testimonials section with five-star reviews',
+    },
+    {
+      image: '../../assets/projects/castro-home-builders/chb-about-mission.png',
+      alt: 'Castro Home Builders about page showing the mission statement and company stats',
+    },
   ]
 ---
 
