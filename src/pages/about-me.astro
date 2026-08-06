@@ -7,10 +7,11 @@ import BaseLayout from '../layouts/Base.astro';
   description="How Kevin Castro approaches building secure, AI-powered systems in high-stakes, regulated domains."
 >
   <main>
-    <h1>// about</h1>
+    <h1>// about me</h1>
     <article class="text-content bracket-frame">
       <span class="corner tl"></span><span class="corner tr"></span>
       <span class="corner bl"></span><span class="corner br"></span>
+      <h2>// what I do</h2>
       <p>
         I'm a senior software engineer who builds AI-powered and or
         data-intensive systems in high-stakes, regulated domains. My deepest
@@ -21,6 +22,7 @@ import BaseLayout from '../layouts/Base.astro';
         frameworks that keep them honest in production. I own things end-to-end,
         from architecture through deployment.
       </p>
+      <h2>// how I work</h2>
       <p>
         I work best dropped into a team as a paratrooper: I have full-stack
         range, I'm comfortable across frontend, backend, and infrastructure, and
@@ -29,6 +31,7 @@ import BaseLayout from '../layouts/Base.astro';
         architecture and the roadmap, not just execute against a spec handed to
         me.
       </p>
+      <h2>// my working philosophy</h2>
       <p>
         I'm drawn to software where there's a short, traceable causal loop
         between the code and the human outcome: a healthcare API that gets a
@@ -37,12 +40,13 @@ import BaseLayout from '../layouts/Base.astro';
         and I think that matters more, not less, as AI makes it easier to ship
         something that merely looks correct.
       </p>
+      <h2>// my background</h2>
       <p>
         I started in Mathematics and Physics at Claremont McKenna College before
         shifting into software full-time, training through UCSD Extension's
-        Full-Stack Web Development bootcamp. I later earned a Bachelor of
-        Science in Computer Science from Western Governors University in 2026,
-        completed while working full-time.
+        Full-Stack Web Development boot camp. I later earned a Bachelor of
+        Science in Computer Science from Western Governors University, completed
+        while working full-time.
       </p>
     </article>
   </main>
@@ -55,5 +59,15 @@ import BaseLayout from '../layouts/Base.astro';
   h1 {
     font-size: 1.6em;
     margin-bottom: 0.75em;
+  }
+  h2 {
+    font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    letter-spacing: 0.03em;
+    color: var(--green);
+    margin: 1.75em 0 0.6em;
+  }
+  h2:first-child {
+    margin-top: 0;
   }
 </style>
