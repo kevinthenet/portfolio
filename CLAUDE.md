@@ -2,8 +2,7 @@
 
 Kevin Castro's personal portfolio: Astro 7 (static output), content
 collections for projects/blog/recommendations, hand-rolled CSS design
-system ("Uplink // Terminal" — terminal x cyberpunk, see `DESIGN-TODO.md`
-for the design pass history and any open items).
+system ("Uplink // Terminal" — terminal x cyberpunk).
 
 ## Package manager: pnpm, not npm
 
@@ -68,6 +67,14 @@ three currently have real content except `blog`, which is empty — expect
 `[WARN] [glob-loader] No files found matching "**/*.md" in directory
 "src/content/blog"` on every build/check; that's expected, not a bug.
 
+**When the first blog post gets added**, give `Blog.astro` `BlogPosting`
+JSON-LD (author referencing the site-wide `Person` `@id` from
+`Base.astro`, `datePublished`, `keywords` from the post's `tags`) from
+that first post rather than retrofitting it later — this was flagged and
+deliberately deferred during the AEO/GEO pass (see `src/layouts/Base.astro`
+and `src/layouts/ProjectHighlight.astro` for the Person/CreativeWork JSON-LD
+pattern already in place to follow).
+
 ## `.astro/` generated types
 
 `.astro/types.d.ts` (gitignored) gives `getCollection()`/`CollectionEntry`
@@ -111,10 +118,3 @@ should all be clean. Clean up `dist/` and `.astro/` if you generated them
 mid-session and don't need them for the editor afterward — but see the
 `.astro/` note above about regenerating types before finishing up. Prefer
 several small, logically-scoped commits over one large one.
-
-## `DESIGN-TODO.md`
-
-Living changelog/backlog for the "Uplink // Terminal" design pass. Check
-"Still open" before starting new design work; move resolved items under
-"Resolved in this pass" with a short note on what changed and why, in the
-same style as the existing entries.
