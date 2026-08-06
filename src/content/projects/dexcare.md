@@ -5,6 +5,11 @@ tag: Healthcare
 date: '2023'
 blurb: Hybrid object storage inside a relational database.
 link: https://www.dexcare.com/
+highlights:
+  [
+    'Delivered near-native relational query performance from a hybrid object-storage layer',
+    'Completed the redesign within a four-month contract window',
+  ]
 technology_used:
   ['Node.js', 'TypeScript', 'OpenAPI', 'PostgreSQL', 'Amazon RDS']
 skills: ['Database Design', 'API Development']

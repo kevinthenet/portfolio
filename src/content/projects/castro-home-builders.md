@@ -4,6 +4,11 @@ subtitle: Rebuilt for $0 hosting, ~100 visits/month
 tag: Construction
 blurb: Astro rebuild and rebrand for a family business.
 link: https://castrohomebuilders.com/
+highlights:
+  [
+    'Moved hosting to $0/month with GitHub Pages and GitHub Actions CI/CD',
+    'Runs at roughly 100 visits a month with zero ongoing maintenance overhead',
+  ]
 technology_used: ['Javascript', 'Astro', 'TailwindCSS', 'AlpineJS', 'FormKeep']
 skills: ['Website Development', 'CI/CD']
 photos:

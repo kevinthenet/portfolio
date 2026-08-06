@@ -5,6 +5,12 @@ tag: Solar / ML
 date: '2023–2025'
 blurb: Scaling backend and ML for a prospect-capacity product.
 link: https://www.pvcase.com/
+highlights:
+  [
+    'Scaled the Prospect Capacity ML product from $500K to $2MM ARR',
+    'Shipped data-center features that captured $500K in revenue in a single quarter',
+    'Led the imagery API work that enabled a strategic geospatial-data partnership',
+  ]
 technology_used:
   [
     'Node.js',

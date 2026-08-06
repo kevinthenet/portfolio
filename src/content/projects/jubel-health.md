@@ -5,6 +5,11 @@ tag: Healthcare
 date: '2019–2021'
 blurb: Conversational AI for personalized fertility care.
 link: https://jubelhealth.com/
+highlights:
+  [
+    'Took the product from zero to a live clinic trial reaching 50+ patients within a year',
+    'Architected the full backend: conversational AI pipeline, CI/CD, and the API powering a React PWA and iPhone app',
+  ]
 technology_used:
   [
     'Javascript',

@@ -70,6 +70,14 @@ const structuredData = [
         {project.photos ? <Slideshow photos={project.photos} /> : null}
       </div>
       <div class="textual-content">
+        {project.highlights ? (
+          <div class="chip-group">
+            <span class="chip-label">highlights</span>
+            <ul class="highlights">
+              {project.highlights.map((highlight) => <li>{highlight}</li>)}
+            </ul>
+          </div>
+        ) : null}
         <div class="chip-group">
           <span class="chip-label">technologies</span>
           <ul class="chips">
@@ -181,6 +189,26 @@ const structuredData = [
   }
   .chip-accent {
     color: var(--cyan);
+  }
+  .highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+  }
+  .highlights li {
+    position: relative;
+    padding-left: 1.15em;
+    font-size: 0.85em;
+    line-height: 1.45;
+  }
+  .highlights li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--green);
   }
 
   @media (max-width: 800px) {

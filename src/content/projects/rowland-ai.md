@@ -5,6 +5,12 @@ tag: Energy
 date: '2026'
 blurb: Agentic document reasoning for lease extraction.
 link: https://rowland.ai
+highlights:
+  [
+    'Benchmarked the extraction pipeline across 10,000+ lease scenarios',
+    'Built the Golden Corpus validation framework for automated, continuous accuracy testing',
+    'Architected agentic RAG and tool-calling pipelines on Gemini long-context models',
+  ]
 technology_used:
   [
     'Terraform',

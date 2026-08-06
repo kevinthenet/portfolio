@@ -5,6 +5,12 @@ tag: Healthcare
 date: '2021–2022'
 blurb: PHI exchange at scale for health systems and vendors.
 link: https://www.redoxengine.com/
+highlights:
+  [
+    'Processed millions of PHI records daily at 99.999% uptime SLA',
+    'Designed the SSO and multi-region infrastructure that unlocked new healthcare partnerships',
+    'Carried the primary on-call rotation for PHI exchange infrastructure',
+  ]
 technology_used:
   [
     'PostgreSQL',
