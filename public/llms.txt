@@ -1,0 +1,29 @@
+# Kevin Castro
+
+> Senior software engineer who builds secure, AI-powered, and data-intensive
+> systems in high-stakes, regulated domains — healthcare, energy, and
+> conversational AI. Deepest experience is PHI-compliant infrastructure,
+> HIPAA-grade data exchange, and high-volume transaction processing, with the
+> same discipline carried into agentic document-reasoning pipelines, LLM/RAG
+> infrastructure, and the eval frameworks that keep them honest in production.
+
+## Profile
+
+- [About](https://kevincastro.dev/about-me): background, working style, and education.
+- [LinkedIn](https://www.linkedin.com/in/ortsacnivek/)
+- [GitHub](https://github.com/kevinthenet)
+- Contact: hello@kevincastro.dev
+
+## Work
+
+- [Work index](https://kevincastro.dev/work): all case studies.
+- [Rowland.ai](https://kevincastro.dev/work/rowland-ai): agentic document reasoning for lease extraction, benchmarked across 10,000+ scenarios.
+- [PVcase](https://kevincastro.dev/work/pvcase): scaled ML product from $500K to $2MM ARR.
+- [Redox](https://kevincastro.dev/work/redox): PHI exchange at scale, millions of records/day at 99.999% uptime.
+- [DexCare](https://kevincastro.dev/work/dexcare): hybrid object storage inside a relational database.
+- [Jubel Health](https://kevincastro.dev/work/jubel-health): conversational AI for personalized fertility care.
+- [Castro Home Builders](https://kevincastro.dev/work/castro-home-builders): Astro rebuild and rebrand for a family business.
+
+## Blog
+
+- [Blog index](https://kevincastro.dev/blog)

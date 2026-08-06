@@ -19,6 +19,39 @@ const {
   description = DEFAULT_DESCRIPTION,
   image = '/og-image.png',
 } = Astro.props;
+
+const siteURL = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const personId = `${siteURL}/#person`;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': personId,
+    name: 'Kevin Castro',
+    jobTitle: 'Senior Software Engineer',
+    description: DEFAULT_DESCRIPTION,
+    url: siteURL,
+    sameAs: [
+      'https://www.linkedin.com/in/ortsacnivek/',
+      'https://github.com/kevinthenet',
+    ],
+    knowsAbout: [
+      'Agentic LLM Pipelines',
+      'RAG Infrastructure',
+      'HIPAA-Compliant Systems',
+      'System Design',
+      'Healthcare Data Exchange',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Kevin Castro',
+    url: siteURL,
+    author: { '@id': personId },
+  },
+];
 ---
 
 <!doctype html>
@@ -30,6 +63,11 @@ const {
     title={title}
     description={description}
     image={image}
+  />
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
   />
   <body>
     <Header />

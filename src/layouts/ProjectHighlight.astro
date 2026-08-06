@@ -7,7 +7,38 @@ import { resolveOgImage } from '../utils/og-image';
 type Props = CollectionEntry<'projects'>;
 
 const { id, data: project } = Astro.props;
+
+const siteURL = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const projectURL = `${siteURL}/work/${id}`;
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.name,
+    description: project.subtitle,
+    url: projectURL,
+    author: { '@id': `${siteURL}/#person` },
+    keywords: [...project.technology_used, ...project.skills].join(', '),
+    ...(project.date ? { dateCreated: project.date } : {}),
+    about: project.tag,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Work', item: `${siteURL}/work` },
+      { '@type': 'ListItem', position: 2, name: project.name, item: projectURL },
+    ],
+  },
+];
 ---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredData)}
+/>
 
 <BaseLayout
   title={project.name}
