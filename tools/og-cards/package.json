@@ -1,0 +1,14 @@
+{
+  "name": "og-cards-tool",
+  "private": true,
+  "type": "module",
+  "description": "Standalone generator for the site's OG/Twitter share cards. Not part of the Astro build — see README.md.",
+  "scripts": {
+    "generate": "node generate.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.1",
+    "sharp": "^0.35.3",
+    "gray-matter": "^4.0.3"
+  }
+}

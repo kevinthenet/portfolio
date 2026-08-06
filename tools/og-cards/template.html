@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #060a08;
+        --text: #b9ffcb;
+        --text-dim: #4c7c63;
+        --green: #00ff6a;
+        --magenta: #ff2fd0;
+        --cyan: #29f1ff;
+        --border: rgba(0, 255, 106, 0.25);
+        --scanline: rgba(0, 255, 106, 0.07);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1200px;
+        height: 630px;
+        background: var(--bg);
+        font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+        overflow: hidden;
+      }
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 90px;
+      }
+      /* CRT scanline + vignette, matching the site's body::before/::after in src/styles/global.css */
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background-image: repeating-linear-gradient(
+          var(--scanline),
+          var(--scanline) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      }
+      .card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: radial-gradient(
+          ellipse at center,
+          transparent 45%,
+          rgba(0, 0, 0, 0.55) 130%
+        );
+      }
+      .corner {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border: 3px solid var(--green);
+        opacity: 0.85;
+        z-index: 3;
+      }
+      .corner.tl {
+        top: 22px;
+        left: 22px;
+        border-right: none;
+        border-bottom: none;
+      }
+      .corner.tr {
+        top: 22px;
+        right: 22px;
+        border-left: none;
+        border-bottom: none;
+      }
+      .corner.bl {
+        bottom: 22px;
+        left: 22px;
+        border-right: none;
+        border-top: none;
+      }
+      .corner.br {
+        bottom: 22px;
+        right: 22px;
+        border-left: none;
+        border-top: none;
+      }
+
+      .content {
+        position: relative;
+        z-index: 4;
+      }
+      .boot {
+        color: var(--text-dim);
+        font-size: 18px;
+        letter-spacing: 0.01em;
+        margin: 0 0 8px;
+      }
+      .boot .ok {
+        color: var(--green);
+        font-weight: 700;
+      }
+      .headline {
+        position: relative;
+        display: block;
+        margin: 16px 0 14px;
+        font-size: var(--headline-size, 74px);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        color: var(--text);
+        line-height: 1.05;
+        max-width: 1020px;
+      }
+      /* Toned-down static version of the site's .glitch-ambient hover effect
+     (src/styles/global.css) — a thin RGB-split sliver instead of a full
+     transient glitch, so it stays legible at small link-preview sizes. */
+      .headline .ghost {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      .headline .ghost.magenta {
+        color: var(--magenta);
+        opacity: 0.75;
+        clip-path: inset(0 0 91% 0);
+        transform: translate(-3px, -2px);
+      }
+      .headline .ghost.cyan {
+        color: var(--cyan);
+        opacity: 0.7;
+        clip-path: inset(91% 0 0 0);
+        transform: translate(3px, 2px);
+      }
+      .metric {
+        font-size: var(--metric-size, 27px);
+        font-weight: 600;
+        color: var(--green);
+        margin: 0 0 16px;
+        max-width: 920px;
+        line-height: 1.35;
+      }
+      .tagline {
+        font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+        font-size: 22px;
+        color: var(--text-dim);
+        max-width: 820px;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .prompt {
+        position: absolute;
+        bottom: 56px;
+        left: 90px;
+        z-index: 4;
+        font-size: 20px;
+        color: var(--text-dim);
+      }
+      .prompt .green {
+        color: var(--green);
+      }
+      .cursor {
+        display: inline-block;
+        width: 12px;
+        height: 22px;
+        background: var(--green);
+        vertical-align: text-bottom;
+        margin-left: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="card"
+      style="
+        --headline-size: __HEADLINE_SIZE__px;
+        --metric-size: __METRIC_SIZE__px;
+      "
+    >
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <div class="content">
+        <p class="boot"><span class="ok">[ OK ]</span> __BOOT_1__</p>
+        <p class="boot"><span class="ok">[ OK ]</span> __BOOT_2__</p>
+        <h1 class="headline">
+          <span class="ghost magenta" aria-hidden="true">__HEADLINE__</span>
+          <span class="ghost cyan" aria-hidden="true">__HEADLINE__</span>
+          __HEADLINE__
+        </h1>
+        <p class="metric">__METRIC__</p>
+        <p class="tagline">__TAGLINE__</p>
+      </div>
+      <p class="prompt">
+        <span class="green">$</span> __PROMPT__<span class="cursor"></span>
+      </p>
+    </div>
+  </body>
+</html>

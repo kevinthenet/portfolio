@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './Base.astro';
 import Slideshow from '../components/Slideshow.astro';
+import { resolveOgImage } from '../utils/og-image';
 
 type Props = CollectionEntry<'projects'>;
 
@@ -11,7 +12,7 @@ const { id, data: project } = Astro.props;
 <BaseLayout
   title={project.name}
   description={project.subtitle}
-  image={`/og/${id}.png`}
+  image={resolveOgImage(`/og/${id}.png`)}
 >
   <main class="project-highlight">
     <div class="brief bracket-frame">

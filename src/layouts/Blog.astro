@@ -4,14 +4,19 @@ import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './Base.astro';
 
 import FormattedDate from '../components/FormattedDate.astro';
+import { resolveOgImage } from '../utils/og-image';
 
 import '../styles/blog-post.css'; // the only way I was able to use custom styling for markdown generated HTML
 
 type Props = CollectionEntry<'blog'>;
-const { data: post } = Astro.props;
+const { id, data: post } = Astro.props;
 ---
 
-<BaseLayout title={post.title} description={post.summary}>
+<BaseLayout
+  title={post.title}
+  description={post.summary}
+  image={resolveOgImage(`/og/blog/${id}.png`)}
+>
   <section class="hero">
     <h1>{post.title}</h1>
     <h3>{post.summary}</h3>
