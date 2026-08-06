@@ -1,11 +1,10 @@
-name: Continuous Deploy (CD) to GitHub Pages
-run-name: ${{ github.sha }}
+name: Continuous Deploy to GitHub Pages
 on:
   # Trigger the workflow every time the CI workflow completes
   # this workflow will be handling completion states
   workflow_run:
     workflows:
-      - Continuous Integration (CI)
+      - Continuous Integration
     types:
       - completed
     branches:
